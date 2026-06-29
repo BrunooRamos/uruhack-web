@@ -26,9 +26,7 @@ export function WindowChrome({
           <i />
         </div>
         {url ? (
-          <div className="browser-url">
-            <span className="lock">🔒</span> {title}
-          </div>
+          <div className="browser-url">{title}</div>
         ) : (
           <span className="win-title">{title}</span>
         )}

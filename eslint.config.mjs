@@ -13,6 +13,16 @@ const eslintConfig = defineConfig([
     "build/**",
     "next-env.d.ts",
   ]),
+  {
+    rules: {
+      // El sistema de diseño usa "//" como texto visible (eyebrows, nav).
+      // No son comentarios JS — desactivamos el falso positivo.
+      "react/jsx-no-comment-textnodes": "off",
+      // Los componentes de animación (scroll-reveal, contadores, terminal)
+      // setean estado dentro de effects a propósito. Lo dejamos como warning.
+      "react-hooks/set-state-in-effect": "warn",
+    },
+  },
 ]);
 
 export default eslintConfig;

@@ -27,7 +27,7 @@ export function ThemeToggle() {
       aria-label={theme === "dark" ? "Cambiar a modo claro" : "Cambiar a modo oscuro"}
       title="theme"
     >
-      <span className="tt-glyph">{theme === "dark" ? "☾" : "☀"}</span>
+      <span className="tt-glyph">{theme === "dark" ? "●" : "○"}</span>
       <span className="tt-label">{theme === "dark" ? "dark" : "light"}</span>
     </button>
   );

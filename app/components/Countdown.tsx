@@ -1,9 +1,9 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { APPLY_DEADLINE_ISO } from "../event";
 
-// TODO(uruhack): poné acá la fecha real del kickoff (viernes 18h).
-const EVENT = new Date("2026-09-25T18:00:00-03:00").getTime();
+const EVENT = new Date(APPLY_DEADLINE_ISO).getTime();
 
 type T = { d: number; h: number; m: number; s: number };
 
@@ -29,8 +29,8 @@ export function Countdown() {
   }, []);
 
   return (
-    <div className="countdown" role="timer" aria-label="Cuenta regresiva al kickoff">
-      <span className="cd-prompt">$ uptime --to-kickoff</span>
+    <div className="countdown" role="timer" aria-label="Cuenta regresiva al cierre de inscripciones">
+      <span className="cd-prompt">$ cierre --inscripciones</span>
       <span className="cd-clock">
         <b>{t ? t.d : "--"}</b>d <b>{t ? pad(t.h) : "--"}</b>:
         <b>{t ? pad(t.m) : "--"}</b>:<b className="cd-s">{t ? pad(t.s) : "--"}</b>

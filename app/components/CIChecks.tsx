@@ -83,7 +83,7 @@ export function CIChecks() {
           })}
           <div className="ci-foot" style={{ opacity: allDone ? 1 : 0.4 }}>
             {allDone ? "✓" : "○"} All checks passed —{" "}
-            <span style={{ color: "#cdd3e3" }}>demo en vivo o es humo.</span>
+            <span style={{ color: "#cdd3e3" }}>se evalúa funcionando, en vivo.</span>
           </div>
         </div>
       </WindowChrome>

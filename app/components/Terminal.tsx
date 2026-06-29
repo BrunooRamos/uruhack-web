@@ -14,14 +14,14 @@ type Line =
 
 const SCRIPT: Line[] = [
   { k: "cmd", text: "npx create-hackathon@latest uruhack" },
-  { k: "task", text: "Reservando sede en Uruguay" },
-  { k: "task", text: "Convocando builders, diseño y product people" },
-  { k: "task", text: "Configurando mentores, sponsors y 4 comidas" },
+  { k: "task", text: "Reservando sede: Hyatt Centric Montevideo" },
+  { k: "task", text: "Convocando builders, diseño y producto" },
+  { k: "task", text: "Configurando mentores, sponsors y tracks" },
   { k: "blank" },
   { k: "q", q: "¿Consigna pública?", a: "Zero to Product" },
-  { k: "q", q: "¿Tono?", a: "spicy, pero pro" },
+  { k: "q", q: "¿Duración?", a: "24 horas, 29–30 ago 2026" },
   { k: "blank" },
-  { k: "comment", text: "// la letra chica, sin vueltas:" },
+  { k: "comment", text: "// la regla, sin vueltas:" },
   { k: "quote" },
 ];
 
@@ -57,7 +57,7 @@ function StaticLine({ line }: { line: Line }) {
         <div>
           <span className="accent">&quot;</span>B2C o B2B, lo que quieras
           <span className="spark">.</span>{" "}
-          <span className="accent">demo en vivo o es humo</span>
+          <span className="accent">se evalúa funcionando, no en slides</span>
           <span className="accent">&quot;</span>
         </div>
       );
@@ -83,8 +83,8 @@ function runCommand(raw: string): {
         <div className="out">
           comandos: <span className="accent">ls</span> ·{" "}
           <span className="accent">cat &lt;archivo&gt;</span> ·{" "}
+          <span className="accent">tracks</span> ·{" "}
           <span className="accent">sponsors</span> ·{" "}
-          <span className="accent">premios</span> ·{" "}
           <span className="accent">inscribite</span> ·{" "}
           <span className="accent">whoami</span> ·{" "}
           <span className="accent">cafe</span> ·{" "}
@@ -105,25 +105,25 @@ function runCommand(raw: string): {
     return {
       out: [
         <div className="md-h" key="h"># UruHack</div>,
-        <div className="out" key="1">Zero to Product en 48 horas. De la idea al deploy,</div>,
-        <div className="out" key="2">con mentores, sponsors y la Embajada de EE.UU. 🇺🇾🇺🇸</div>,
+        <div className="out" key="1">Zero to Product en 24 horas. Un producto real, funcionando,</div>,
+        <div className="out" key="2">con mentores y sponsors del ecosistema tech.</div>,
       ],
     };
   if (lower === "cat consigna" || lower === "cat consigna.md")
     return {
       out: O(
         <div className="out">
-          Convertí una idea en un producto real y usable, en 48h. B2C o B2B.{" "}
-          <span className="accent">demo en vivo o es humo.</span>
+          Convertí una idea en un producto real y usable, en 24h. B2C o B2B.{" "}
+          <span className="accent">se evalúa funcionando, no en slides.</span>
         </div>,
       ),
     };
   if (lower === "cat reglas" || lower === "cat reglas.txt")
     return {
       out: [
-        <div className="out" key="1">1. demo en vivo o es humo.</div>,
-        <div className="out" key="2">2. deploy o nada.</div>,
-        <div className="out" key="3">3. divertite (es obligatorio).</div>,
+        <div className="out" key="1">1. se construye durante el evento.</div>,
+        <div className="out" key="2">2. demo en vivo, sin excepciones.</div>,
+        <div className="out" key="3">3. equipos de 3 a 5 personas.</div>,
       ],
     };
   if (lower.startsWith("cat"))
@@ -132,44 +132,46 @@ function runCommand(raw: string): {
     return {
       out: O(
         <div className="out">
-          🇺🇸 Embajada de EE.UU. · <span className="comment">[tu logo acá]</span> ·
+          Embajada de EE.UU. · <span className="comment">[tu logo acá]</span> ·
           sumate → <span className="accent">sponsors@uruhack.uy</span>
         </div>,
       ),
     };
-  if (lower === "premios")
+  if (lower === "tracks")
     return {
       out: O(
         <div className="out">
-          🥇 $XX.XXX · 🥈 $XX.XXX · 🥉 $XX.XXX ·{" "}
-          <span className="spark">+ menciones sorpresa</span>
+          <span className="accent">Fintech</span> ·{" "}
+          <span className="accent">IA aplicada</span> ·{" "}
+          <span className="accent">Salud &amp; Bienestar</span> ·{" "}
+          <span className="accent">Open</span> — cada uno con sponsor y premio propios.
         </div>,
       ),
     };
   if (lower === "whoami")
-    return { out: O(<div className="out">un builder que todavía no se anotó 😏 — tipeá <span className="accent">inscribite</span></div>) };
+    return { out: O(<div className="out">un builder que todavía no se inscribió — tipeá <span className="accent">inscribite</span></div>) };
   if (lower === "cafe" || lower === "coffee" || lower === "café")
-    return { out: O(<div className="out">☕ sirviendo café… (ilimitado durante el evento)</div>) };
+    return { out: O(<div className="out">sirviendo café… (ilimitado durante el evento)</div>) };
   if (lower === "date")
     return { out: O(<div className="out">{new Date().toString()}</div>) };
   if (lower === "matrix")
-    return { out: O(<div className="ok">entrando a la matrix… 🐰</div>), action: "matrix" };
+    return { out: O(<div className="ok">entrando a la matrix…</div>), action: "matrix" };
   if (lower === "crash" || lower === "throw" || lower.startsWith("throw "))
-    return { out: O(<div className="del-text">💥 lanzando excepción no controlada…</div>), action: "crash" };
+    return { out: O(<div className="del-text">lanzando excepción no controlada…</div>), action: "crash" };
   if (lower === "clear" || lower === "cls") return { out: [], action: "clear" };
   if (lower.startsWith("echo "))
     return { out: O(<div className="out">{cmd.slice(5)}</div>) };
   if (lower.startsWith("sudo"))
-    return { out: O(<div className="del-text">🔒 permiso denegado: andá a shippear.</div>) };
+    return { out: O(<div className="del-text">permiso denegado.</div>) };
   if (lower.startsWith("rm"))
-    return { out: O(<div className="del-text">nice try 😏 — el repo se queda.</div>) };
+    return { out: O(<div className="del-text">buen intento — el repo se queda.</div>) };
   if (
     lower === "inscribite" ||
     lower === "git push" ||
     lower === "git push --inscribite" ||
     lower === "deploy"
   )
-    return { out: O(<div className="ok">abriendo formulario de inscripción…</div>), action: "inscribite" };
+    return { out: O(<div className="ok">abriendo inscripción en Luma…</div>), action: "inscribite" };
   return {
     out: O(
       <div className="out">

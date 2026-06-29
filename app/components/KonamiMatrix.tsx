@@ -106,7 +106,7 @@ export function KonamiMatrix() {
     <div className="matrix-overlay" aria-hidden>
       <canvas ref={cv} className="matrix-cv" />
       <div className="matrix-toast">
-        🐰 modo hacker activado — <span className="spark">git push --chaos</span>
+        modo hacker activado — <span className="spark">git push --chaos</span>
       </div>
     </div>
   );

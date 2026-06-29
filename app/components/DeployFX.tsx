@@ -3,25 +3,19 @@
 import { useEffect, useRef, useState } from "react";
 import { SPIN, reducedMotion } from "./useInView";
 import { fireConfetti } from "./confetti";
+import { LUMA_URL } from "../event";
 
 const STEPS = [
   { run: "building…", ok: "compiled ✓", ms: 650 },
   { run: "running tests…", ok: "5 passed ✓", ms: 650 },
-  { run: "deploying a prod…", ok: "deployed ✓", ms: 800 },
+  { run: "abriendo inscripción…", ok: "redirect → luma ✓", ms: 800 },
 ];
 
-function gotoForm() {
-  const el = document.getElementById("live");
-  el?.scrollIntoView({ behavior: "smooth", block: "start" });
-  setTimeout(() => {
-    const input = document.querySelector<HTMLInputElement>(
-      '#live input[name="equipo"]',
-    );
-    input?.focus();
-  }, 700);
+function openApply() {
+  window.open(LUMA_URL, "_blank", "noopener,noreferrer");
 }
 
-/** Listens for `uru:deploy` and plays a fake CI pipeline before opening the form. */
+/** Listens for `uru:deploy` and plays a fake CI pipeline before opening Luma. */
 export function DeployFX() {
   const [open, setOpen] = useState(false);
   const [step, setStep] = useState(0); // index running; STEPS.length = live
@@ -40,7 +34,7 @@ export function DeployFX() {
 
       if (reducedMotion()) {
         busy.current = false;
-        gotoForm();
+        openApply();
         return;
       }
 
@@ -62,7 +56,7 @@ export function DeployFX() {
         setTimeout(() => {
           setOpen(false);
           busy.current = false;
-          gotoForm();
+          openApply();
         }, acc + 1100),
       );
     };
@@ -106,7 +100,8 @@ export function DeployFX() {
             );
           })}
           <div className={`deploy-live ${live ? "on" : ""}`}>
-            <span className="live-dot" /> {live ? "● LIVE — uruhack.uy 🎉" : "esperando deploy…"}
+            <span className="live-dot" />{" "}
+            {live ? "● Abriendo inscripción en Luma…" : "esperando deploy…"}
           </div>
         </div>
       </div>
@@ -124,7 +119,9 @@ export function InscribiteBtn({
 }) {
   return (
     <a
-      href="#live"
+      href={LUMA_URL}
+      target="_blank"
+      rel="noopener noreferrer"
       className={className}
       onClick={(e) => {
         e.preventDefault();

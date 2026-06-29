@@ -81,7 +81,7 @@ export function FakeCrash() {
 
         <div className="crash-main">
           <div className="crash-errname">
-            {fixed ? "Error: resuelto ✓" : "Error: too much hype 🔥"}
+            {fixed ? "Error: resuelto ✓" : "Error: too much hype"}
           </div>
 
           <div className="crash-label">Source</div>
@@ -92,7 +92,7 @@ export function FakeCrash() {
             <span className="cl-dim">  41 | </span>if (energy {">"} MAX) {"{"}
             {"\n"}
             <span className={fixed ? "cl-fixed" : "cl-bad"}>
-              {fixed ? "  42 |   shipIt() // hype canalizado" : "> 42 |   throw new Error(\"too much hype 🔥\")"}
+              {fixed ? "  42 |   shipIt() // hype canalizado" : "> 42 |   throw new Error(\"too much hype\")"}
             </span>
             {!fixed && (
               <>

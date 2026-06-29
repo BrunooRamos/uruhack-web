@@ -5,20 +5,20 @@ import { WindowChrome } from "./WindowChrome";
 import { reducedMotion, useInView } from "./useInView";
 
 const COMMITS = [
-  { hash: "a1f9c0", msg: <>init: armamos equipo (3-5) 🤝</>, when: "vie 19h" },
-  { hash: "7d22e1", msg: <>feat: idea elegida, scope cerrado</>, when: "vie 23h" },
-  { hash: "b3e8aa", msg: <>feat: el core anda 🎉</>, when: "sáb 04h" },
-  { hash: "c91002", msg: <>fix: el bug de las 4am (todos)</>, when: "sáb 05h" },
-  { hash: "e40b7d", msg: <>chore: mentoreo → pivot a tiempo</>, when: "sáb 16h" },
-  { hash: "f8a1cc", msg: <>feat: deploy a prod 🚀</>, when: "dom 02h" },
+  { hash: "a1f9c0", msg: <>init: equipo formado (3–5)</>, when: "sáb 10h" },
+  { hash: "7d22e1", msg: <>feat: idea elegida, scope cerrado</>, when: "sáb 12h" },
+  { hash: "b3e8aa", msg: <>feat: el core funciona</>, when: "sáb 17h" },
+  { hash: "e40b7d", msg: <>chore: mentoría → ajuste de scope</>, when: "sáb 22h" },
+  { hash: "c91002", msg: <>fix: el bug de la madrugada</>, when: "dom 04h" },
+  { hash: "f8a1cc", msg: <>feat: deploy a producción</>, when: "dom 08h" },
   {
     hash: "9c0fff",
     msg: (
       <>
-        demo: <span className="accent">anda en vivo. y se nota.</span>
+        demo: <span className="accent">funciona en vivo.</span>
       </>
     ),
-    when: "dom 12h",
+    when: "dom 10h",
   },
 ];
 

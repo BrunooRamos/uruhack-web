@@ -4,10 +4,10 @@ import { useEffect, useState } from "react";
 import { reducedMotion, useInView } from "./useInView";
 
 const STATS = [
-  { n: 48, suffix: "h", label: "// de build sin parar" },
-  { n: 15, suffix: "", label: "// equipos, máximo" },
-  { n: 4, suffix: "", label: "// comidas + café infinito" },
-  { n: 1, suffix: "", label: "// objetivo: deploy a prod" },
+  { n: 24, suffix: "h", label: "// de build, sin parar" },
+  { n: 5, suffix: "", label: "// integrantes por equipo (3–5)" },
+  { n: 100, suffix: "%", label: "// demos en vivo, sin slides" },
+  { n: 1, suffix: "", label: "// objetivo: deploy a producción" },
 ];
 
 function StatNum({ target, suffix, go }: { target: number; suffix: string; go: boolean }) {

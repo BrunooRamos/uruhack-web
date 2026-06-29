@@ -22,13 +22,13 @@ const mono = JetBrains_Mono({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://uruhack.uy"),
-  title: "<UruHack> — Hackathon nacional de builders",
+  title: "<UruHack> — Hackathon de 24 horas en Montevideo",
   description:
-    "Hackathon nacional para la nueva generación de builders uruguayos. Acá se shippea. O no te da.",
+    "Hackathon de 24 horas para jóvenes builders uruguayos. Construí un producto real y funcionando. 29–30 de agosto de 2026, Hyatt Centric Montevideo.",
   openGraph: {
-    title: "<UruHack>",
+    title: "<UruHack> — Hackathon de 24 horas en Montevideo",
     description:
-      "Hackathon nacional para la nueva generación de builders. Acá se shippea.",
+      "Construí un producto real en 24 horas. 29–30 de agosto de 2026, Hyatt Centric Montevideo.",
     locale: "es_UY",
   },
 };
