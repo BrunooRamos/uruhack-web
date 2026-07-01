@@ -12,6 +12,7 @@ import { Magnetic } from "./components/Magnetic";
 import { KonamiMatrix } from "./components/KonamiMatrix";
 import { DeployFX, InscribiteBtn } from "./components/DeployFX";
 import { FakeCrash } from "./components/FakeCrash";
+import { StructuredData } from "./components/StructuredData";
 import { ThemeToggle } from "./components/ThemeToggle";
 import { VENUE, VENUE_ADDRESS, VENUE_MAPS, EVENT_DATES, CONTACT_EMAIL } from "./event";
 
@@ -41,6 +42,7 @@ const AGENDA = [
 export default function Home() {
   return (
     <>
+      <StructuredData />
       <ParticleField />
       <ScrollProgress />
       <KonamiMatrix />
