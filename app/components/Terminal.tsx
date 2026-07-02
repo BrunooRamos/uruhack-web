@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState, type ReactNode } from "react";
 import { WindowChrome } from "./WindowChrome";
 import { SPIN, reducedMotion, useInView } from "./useInView";
+import { CONTACT_EMAIL } from "../event";
 
 type Line =
   | { k: "cmd"; text: string }
@@ -132,8 +133,8 @@ function runCommand(raw: string): {
     return {
       out: O(
         <div className="out">
-          Embajada de EE.UU. · <span className="comment">[tu logo acá]</span> ·
-          sumate → <span className="accent">sponsors@uruhack.uy</span>
+          anuncio próximamente · <span className="comment">[tu logo acá]</span> ·
+          sumate → <span className="accent">{CONTACT_EMAIL}</span>
         </div>,
       ),
     };
@@ -141,10 +142,8 @@ function runCommand(raw: string): {
     return {
       out: O(
         <div className="out">
-          <span className="accent">Fintech</span> ·{" "}
-          <span className="accent">IA aplicada</span> ·{" "}
-          <span className="accent">Salud &amp; Bienestar</span> ·{" "}
-          <span className="accent">Open</span> — cada uno con sponsor y premio propios.
+          <span className="accent">General</span> — compiten todos los equipos
+          por el premio principal. Tracks por sponsor: se anuncian pronto.
         </div>,
       ),
     };

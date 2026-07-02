@@ -10,13 +10,15 @@ type Person = {
 };
 
 // TODO(uruhack): reemplazá por mentores y jurado reales (nombre, rol, empresa, foto).
+// Mientras no estén confirmados, el nombre no se renderiza como texto
+// (evita indexar "Por anunciar" repetido en buscadores).
 const PEOPLE: Person[] = [
-  { name: "Por anunciar", role: "Mentor · Ingeniería", org: "—", confirmed: false },
-  { name: "Por anunciar", role: "Mentor · Producto", org: "—", confirmed: false },
-  { name: "Por anunciar", role: "Mentor · Diseño", org: "—", confirmed: false },
-  { name: "Por anunciar", role: "Jurado", org: "—", confirmed: false },
-  { name: "Por anunciar", role: "Jurado", org: "—", confirmed: false },
-  { name: "Por anunciar", role: "Jurado", org: "—", confirmed: false },
+  { name: "", role: "Mentor · Ingeniería", org: "—", confirmed: false },
+  { name: "", role: "Mentor · Producto", org: "—", confirmed: false },
+  { name: "", role: "Mentor · Diseño", org: "—", confirmed: false },
+  { name: "", role: "Jurado", org: "—", confirmed: false },
+  { name: "", role: "Jurado", org: "—", confirmed: false },
+  { name: "", role: "Jurado", org: "—", confirmed: false },
 ];
 
 export function Mentors() {
@@ -41,7 +43,9 @@ export function Mentors() {
             <Reveal key={i} delay={i * 0.05}>
               <div className={`mentor-card ${p.confirmed ? "" : "ghost"}`}>
                 <div className="mt-avatar" aria-hidden />
-                <div className="mt-name">{p.name}</div>
+                <div className="mt-name">
+                  {p.confirmed ? p.name : <span className="mt-ghostline" aria-hidden />}
+                </div>
                 <div className="mt-role">{p.role}</div>
                 <div className="mt-org">{p.org}</div>
               </div>

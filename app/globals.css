@@ -2047,6 +2047,15 @@ html[data-theme="dark"] .live-hero {
   color: var(--navy);
   font-size: 16px;
 }
+/* placeholder sin texto para mentores no anunciados (nada que indexar) */
+.mt-ghostline {
+  display: inline-block;
+  width: 96px;
+  height: 12px;
+  margin: 5px 0;
+  border-radius: 4px;
+  background: var(--line);
+}
 .mt-role {
   font-family: var(--font-mono-stack);
   font-size: 12px;
@@ -2110,10 +2119,13 @@ html[data-theme="dark"] .live-hero {
   display: none;
 }
 .faq-q {
+  /* es un <h3> dentro del <summary>: reset de estilos de heading */
+  margin: 0;
   font-family: var(--font-display-stack);
   font-weight: 600;
   color: var(--navy);
   font-size: 16px;
+  line-height: inherit;
 }
 .faq-mark {
   font-family: var(--font-mono-stack);
@@ -2264,11 +2276,17 @@ html[data-theme="dark"] .live-hero {
   display: inline-block;
 }
 .hero-kicker {
+  display: block;
   font-family: var(--font-mono-stack);
+  font-weight: 400;
   font-size: 14px;
   letter-spacing: 0.02em;
+  line-height: 1.6;
   color: var(--blue);
   margin-bottom: 14px;
+}
+.hero-h1-main {
+  display: block;
 }
 .hero-terminal {
   position: relative;

@@ -1,24 +1,34 @@
 import {
   APPLY_DEADLINE_ISO,
+  APPLY_OPEN_ISO,
   CANONICAL_URL,
   CONTACT_EMAIL,
+  CONTENT_UPDATED_ISO,
   DURATION_HOURS,
-  EVENT_DATES_LONG,
+  EVENT_DESCRIPTION,
   EVENT_END_ISO,
   EVENT_KICKOFF_ISO,
+  LOGO_URL,
   LUMA_URL,
   OG_IMAGE_URL,
   SEO_DESCRIPTION,
   SITE_NAME,
   SITE_URL,
+  SOCIAL_PROFILES,
   TEAM_SIZE,
   VENUE,
   VENUE_ADDRESS,
+  VENUE_GEO,
+  VENUE_POSTAL_CODE,
+  VENUE_REGION,
 } from "../event";
+import { FAQS } from "../faqs";
 
 const organizationId = `${SITE_URL}/#organization`;
 const websiteId = `${SITE_URL}/#website`;
+const webpageId = `${SITE_URL}/#webpage`;
 const eventId = `${SITE_URL}/#event`;
+const faqId = `${SITE_URL}/#faq`;
 
 const structuredData = {
   "@context": "https://schema.org",
@@ -29,24 +39,48 @@ const structuredData = {
       name: SITE_NAME,
       url: SITE_URL,
       email: CONTACT_EMAIL,
-      logo: `${SITE_URL}/logo.png`,
+      logo: {
+        "@type": "ImageObject",
+        url: LOGO_URL,
+        width: 512,
+        height: 512,
+      },
+      sameAs: SOCIAL_PROFILES,
+      contactPoint: {
+        "@type": "ContactPoint",
+        email: CONTACT_EMAIL,
+        contactType: "customer support",
+        availableLanguage: ["es"],
+      },
     },
     {
       "@type": "WebSite",
       "@id": websiteId,
       name: SITE_NAME,
       url: CANONICAL_URL,
+      description: SEO_DESCRIPTION,
       inLanguage: "es-UY",
       publisher: { "@id": organizationId },
+    },
+    {
+      "@type": "WebPage",
+      "@id": webpageId,
+      url: CANONICAL_URL,
+      name: "UruHack 2026 — Hackathon de 24 horas en Montevideo",
+      isPartOf: { "@id": websiteId },
+      about: { "@id": eventId },
+      primaryImageOfPage: OG_IMAGE_URL,
+      inLanguage: "es-UY",
+      dateModified: CONTENT_UPDATED_ISO,
     },
     {
       "@type": "Event",
       "@id": eventId,
       name: "UruHack 2026",
       alternateName: SITE_NAME,
-      description: SEO_DESCRIPTION,
+      description: EVENT_DESCRIPTION,
       url: CANONICAL_URL,
-      image: [OG_IMAGE_URL],
+      image: [OG_IMAGE_URL, LOGO_URL],
       startDate: EVENT_KICKOFF_ISO,
       endDate: EVENT_END_ISO,
       duration: `PT${DURATION_HOURS}H`,
@@ -62,7 +96,14 @@ const structuredData = {
           "@type": "PostalAddress",
           streetAddress: VENUE_ADDRESS,
           addressLocality: "Montevideo",
+          addressRegion: VENUE_REGION,
+          postalCode: VENUE_POSTAL_CODE,
           addressCountry: "UY",
+        },
+        geo: {
+          "@type": "GeoCoordinates",
+          latitude: VENUE_GEO.lat,
+          longitude: VENUE_GEO.lng,
         },
       },
       organizer: { "@id": organizationId },
@@ -72,14 +113,27 @@ const structuredData = {
         price: "0",
         priceCurrency: "UYU",
         availability: "https://schema.org/LimitedAvailability",
+        validFrom: APPLY_OPEN_ISO,
         validThrough: APPLY_DEADLINE_ISO,
       },
       audience: {
         "@type": "Audience",
         audienceType: `Jóvenes builders de Uruguay en equipos de ${TEAM_SIZE} personas`,
       },
-      about: EVENT_DATES_LONG,
       isAccessibleForFree: true,
+    },
+    {
+      "@type": "FAQPage",
+      "@id": faqId,
+      inLanguage: "es-UY",
+      mainEntity: FAQS.map((item) => ({
+        "@type": "Question",
+        name: item.q,
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: item.aText,
+        },
+      })),
     },
   ],
 };

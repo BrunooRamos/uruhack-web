@@ -1,8 +1,7 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Space_Grotesk, Inter, JetBrains_Mono } from "next/font/google";
 import {
   CANONICAL_URL,
-  OG_IMAGE_URL,
   SEO_DESCRIPTION,
   SEO_TITLE,
   SITE_NAME,
@@ -37,6 +36,7 @@ export const metadata: Metadata = {
     canonical: CANONICAL_URL,
     languages: {
       "es-UY": CANONICAL_URL,
+      "x-default": CANONICAL_URL,
     },
   },
   keywords: [
@@ -62,6 +62,8 @@ export const metadata: Metadata = {
       "max-video-preview": -1,
     },
   },
+  // Las imágenes OG/Twitter salen de app/opengraph-image.tsx (file convention);
+  // X/Twitter cae en og:image automáticamente.
   openGraph: {
     title: SEO_TITLE,
     description: SEO_DESCRIPTION,
@@ -69,27 +71,20 @@ export const metadata: Metadata = {
     siteName: SITE_NAME,
     locale: "es_UY",
     type: "website",
-    images: [
-      {
-        url: OG_IMAGE_URL,
-        width: 2940,
-        height: 1616,
-        alt: "UruHack 2026, hackathon de 24 horas en Montevideo",
-      },
-    ],
   },
   twitter: {
     card: "summary_large_image",
     title: SEO_TITLE,
     description: SEO_DESCRIPTION,
-    images: [
-      {
-        url: OG_IMAGE_URL,
-        alt: "UruHack 2026, hackathon de 24 horas en Montevideo",
-      },
-    ],
   },
   category: "event",
+};
+
+export const viewport: Viewport = {
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#f6f7f9" },
+    { media: "(prefers-color-scheme: dark)", color: "#080b16" },
+  ],
 };
 
 export default function RootLayout({

@@ -14,7 +14,14 @@ import { DeployFX, InscribiteBtn } from "./components/DeployFX";
 import { FakeCrash } from "./components/FakeCrash";
 import { StructuredData } from "./components/StructuredData";
 import { ThemeToggle } from "./components/ThemeToggle";
-import { VENUE, VENUE_ADDRESS, VENUE_MAPS, EVENT_DATES, CONTACT_EMAIL } from "./event";
+import {
+  VENUE,
+  VENUE_ADDRESS,
+  VENUE_MAPS,
+  EVENT_DATES,
+  EVENT_START_DATE,
+  CONTACT_EMAIL,
+} from "./event";
 
 const AGENDA = [
   {
@@ -118,12 +125,16 @@ export default function Home() {
                   <img
                     src="/hyatt-rooftop.webp"
                     alt="Azotea del Hyatt Centric Montevideo al atardecer, con vista a la rambla"
+                    width={1280}
+                    height={720}
                     loading="lazy"
                   />
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
-                    src="/hyatt-exterior.jpg"
+                    src="/hyatt-exterior.webp"
                     alt="Entrada del Hyatt Centric Montevideo"
+                    width={1280}
+                    height={711}
                     loading="lazy"
                   />
                 </div>
@@ -164,7 +175,9 @@ export default function Home() {
             </p>
             <div className="apply-meta">
               <div>
-                <b>{EVENT_DATES}</b>
+                <b>
+                  <time dateTime={EVENT_START_DATE}>{EVENT_DATES}</time>
+                </b>
                 <span>// sábado a domingo</span>
               </div>
               <div>
@@ -193,7 +206,8 @@ export default function Home() {
             <div>
               <Logo />
               <p className="foot-copy">
-                Zero to Product en 24 horas — {EVENT_DATES}.
+                Zero to Product en 24 horas —{" "}
+                <time dateTime={EVENT_START_DATE}>{EVENT_DATES}</time>.
               </p>
               <p className="foot-copy" style={{ marginTop: 8 }}>
                 <a href={VENUE_MAPS} target="_blank" rel="noopener noreferrer">
