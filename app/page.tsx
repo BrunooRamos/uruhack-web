@@ -3,6 +3,7 @@ import { Reveal } from "./components/Reveal";
 import { ScrollProgress } from "./components/ScrollProgress";
 import { ParticleField } from "./components/ParticleField";
 import { Hero } from "./components/Hero";
+import { Sponsors } from "./components/Sponsors";
 import { Tracks } from "./components/Tracks";
 import { Mentors } from "./components/Mentors";
 import { FAQ } from "./components/FAQ";
@@ -13,7 +14,6 @@ import { KonamiMatrix } from "./components/KonamiMatrix";
 import { DeployFX, InscribiteBtn } from "./components/DeployFX";
 import { FakeCrash } from "./components/FakeCrash";
 import { StructuredData } from "./components/StructuredData";
-import { ThemeToggle } from "./components/ThemeToggle";
 import {
   VENUE,
   VENUE_ADDRESS,
@@ -68,7 +68,6 @@ export default function Home() {
               <a href="#build">// programa</a>
               <a href="#faq">// faq</a>
             </div>
-            <ThemeToggle />
             <Magnetic strength={0.3}>
               <InscribiteBtn className="btn">Aplicar →</InscribiteBtn>
             </Magnetic>
@@ -78,8 +77,11 @@ export default function Home() {
 
       <span id="top" />
 
-      {/* ============ HERO (incluye terminal + sponsors) ============ */}
+      {/* ============ HERO ============ */}
       <Hero />
+
+      {/* ============ SPONSORS ============ */}
+      <Sponsors />
 
       {/* ============ TRACKS ============ */}
       <Tracks />

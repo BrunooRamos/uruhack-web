@@ -3,10 +3,6 @@ import { InscribiteBtn } from "./DeployFX";
 import { Terminal } from "./Terminal";
 import { EVENT_DATES, EVENT_START_DATE } from "../event";
 
-// TODO(uruhack): cuando haya sponsors confirmados, agregá acá sus <img> con
-// alt="<nombre del sponsor>" y el marquee vuelve a renderizarse solo.
-const SP_LOGOS: string[] = [];
-
 export function Hero() {
   return (
     <header className="hero" id="init">
@@ -58,22 +54,6 @@ export function Hero() {
           <Terminal />
         </div>
       </div>
-
-      {SP_LOGOS.length > 0 && (
-        <div className="wrap hero-sponsors">
-          <div className="sp-marquee">
-            {[0, 1].map((track) => (
-              <div className="sp-track" key={track} aria-hidden={track === 1}>
-                {SP_LOGOS.map((name, i) => (
-                  <span className="sp-logo" key={i}>
-                    {name}
-                  </span>
-                ))}
-              </div>
-            ))}
-          </div>
-        </div>
-      )}
     </header>
   );
 }

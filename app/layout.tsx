@@ -81,25 +81,14 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#f6f7f9" },
-    { media: "(prefers-color-scheme: dark)", color: "#080b16" },
-  ],
+  themeColor: "#f6f7f9",
 };
 
 export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="es" suppressHydrationWarning>
-      <head>
-        <script
-          dangerouslySetInnerHTML={{
-            __html:
-              "(function(){try{var t=localStorage.getItem('uru-theme');if(t==='dark'||t==='light')document.documentElement.dataset.theme=t;}catch(e){}})();",
-          }}
-        />
-      </head>
+    <html lang="es">
       <body
         className={`${display.variable} ${sans.variable} ${mono.variable}`}
       >
