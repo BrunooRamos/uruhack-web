@@ -310,6 +310,17 @@ section {
   padding: 112px 0;
   position: relative;
 }
+/* Tighter vertical rhythm on phones — 112px gaps read as dead space on mobile. */
+@media (max-width: 760px) {
+  section {
+    padding: 68px 0;
+  }
+}
+@media (max-width: 460px) {
+  section {
+    padding: 52px 0;
+  }
+}
 .section-rule {
   border-top: 1px solid var(--line);
 }
@@ -1060,6 +1071,11 @@ nav.topnav .logo {
   overflow: hidden;
   padding: 80px 0 56px;
 }
+@media (max-width: 760px) {
+  .hero {
+    padding: 48px 0 32px;
+  }
+}
 
 /* ---- scroll hint bob ---- */
 @keyframes bob {
@@ -1111,6 +1127,9 @@ nav.topnav .logo {
 .countdown {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  max-width: 100%;
   gap: 12px;
   font-family: var(--font-mono-stack);
   font-size: 14.5px;
@@ -1537,13 +1556,27 @@ body.has-cursor .repl-input {
   animation: matrix-fade 0.25s ease both;
 }
 .deploy-card {
-  width: min(420px, 92vw);
+  /* 100% (not 92vw) so the overlay's own 24px padding forms symmetric gutters */
+  width: min(420px, 100%);
   background: var(--navy);
   border: 1px solid var(--navy-3);
   border-radius: 14px;
   overflow: hidden;
   box-shadow: 0 30px 80px -20px rgba(0, 0, 0, 0.6);
-  animation: toast-in 0.3s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+  /* centered by the overlay's grid place-items; only translate vertically.
+     (must NOT reuse toast-in — that keeps a translateX(-50%) meant for the
+     absolutely-positioned .matrix-toast, which shoves this card off-screen.) */
+  animation: deploy-in 0.3s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+@keyframes deploy-in {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 .deploy-head {
   display: flex;
@@ -2001,8 +2034,24 @@ html[data-theme="dark"] .live-hero {
   }
 }
 @media (max-width: 460px) {
+  /* Keep two columns on phones so the 6 placeholders form 3 short rows
+     instead of one long stack; compact the cards so 2-up fits at 320px. */
   .mentors-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+  .mentor-card {
+    padding: 16px 10px;
+  }
+  .mt-avatar {
+    width: 44px;
+    height: 44px;
+    font-size: 16px;
+    margin-bottom: 6px;
+  }
+  .mt-ghostline {
+    width: 60px;
+    margin: 4px 0;
   }
 }
 .mentor-card {
@@ -2403,6 +2452,13 @@ a.sponsor-main:hover {
     grid-template-columns: 1fr;
     gap: 22px;
   }
+}
+/* Let grid children shrink below their content's intrinsic width. Without this,
+   a wide monospace child (e.g. the countdown) forces the column — and every
+   sibling in it — past the viewport on narrow phones. */
+.split2 > *,
+.agenda-grid > * {
+  min-width: 0;
 }
 
 /* ---- agenda + lugar ---- */
