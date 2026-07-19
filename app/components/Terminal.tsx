@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState, type ReactNode } from "react";
 import { WindowChrome } from "./WindowChrome";
 import { SPIN, reducedMotion, useInView } from "./useInView";
-import { CONTACT_EMAIL } from "../event";
+import { CONTACT_EMAIL, EVENT_DATES } from "../event";
 
 type Line =
   | { k: "cmd"; text: string }
@@ -14,13 +14,13 @@ type Line =
   | { k: "quote" };
 
 const SCRIPT: Line[] = [
-  { k: "cmd", text: "npx create-hackathon@latest uruhack" },
-  { k: "task", text: "Reservando sede: Hyatt Centric Montevideo" },
-  { k: "task", text: "Convocando builders, diseño y producto" },
-  { k: "task", text: "Configurando mentores, sponsors y tracks" },
+  { k: "cmd", text: "npx create-hackathon@latest build-101" },
+  { k: "task", text: "reservando sede: universidad de montevideo — fium" },
+  { k: "task", text: "convocando builders, diseño y producto" },
+  { k: "task", text: "configurando mentores, sponsors y tracks" },
   { k: "blank" },
-  { k: "q", q: "¿Consigna pública?", a: "Zero to Product" },
-  { k: "q", q: "¿Duración?", a: "24 horas, 29–30 ago 2026" },
+  { k: "q", q: "¿consigna pública?", a: "zero to product" },
+  { k: "q", q: "¿duración?", a: `36 horas, ${EVENT_DATES}` },
   { k: "blank" },
   { k: "comment", text: "// la regla, sin vueltas:" },
   { k: "quote" },
@@ -56,7 +56,7 @@ function StaticLine({ line }: { line: Line }) {
     case "quote":
       return (
         <div>
-          <span className="accent">&quot;</span>B2C o B2B, lo que quieras
+          <span className="accent">&quot;</span>b2c o b2b, lo que quieras
           <span className="spark">.</span>{" "}
           <span className="accent">se evalúa funcionando, no en slides</span>
           <span className="accent">&quot;</span>
@@ -98,15 +98,15 @@ function runCommand(raw: string): {
       out: O(
         <div className="out">
           builders/ mentores/ sponsors/{"  "}
-          <span className="accent">README.md</span> consigna.md reglas.txt
+          <span className="accent">readme.md</span> consigna.md reglas.txt
         </div>,
       ),
     };
   if (lower === "cat readme" || lower === "cat readme.md")
     return {
       out: [
-        <div className="md-h" key="h"># UruHack</div>,
-        <div className="out" key="1">Zero to Product en 24 horas. Un producto real, funcionando,</div>,
+        <div className="md-h" key="h"># build 101</div>,
+        <div className="out" key="1">zero to product en 36 horas. un producto real, funcionando,</div>,
         <div className="out" key="2">con mentores y sponsors del ecosistema tech.</div>,
       ],
     };
@@ -114,7 +114,7 @@ function runCommand(raw: string): {
     return {
       out: O(
         <div className="out">
-          Convertí una idea en un producto real y usable, en 24h. B2C o B2B.{" "}
+          convertí una idea en un producto real y usable, en 36h. b2c o b2b.{" "}
           <span className="accent">se evalúa funcionando, no en slides.</span>
         </div>,
       ),
@@ -142,8 +142,8 @@ function runCommand(raw: string): {
     return {
       out: O(
         <div className="out">
-          <span className="accent">General</span> — compiten todos los equipos
-          por el premio principal. Tracks por sponsor: se anuncian pronto.
+          <span className="accent">general</span> — compiten todos los equipos
+          por el premio principal. tracks por sponsor: se anuncian pronto.
         </div>,
       ),
     };
@@ -152,7 +152,7 @@ function runCommand(raw: string): {
   if (lower === "cafe" || lower === "coffee" || lower === "café")
     return { out: O(<div className="out">sirviendo café… (ilimitado durante el evento)</div>) };
   if (lower === "date")
-    return { out: O(<div className="out">{new Date().toString()}</div>) };
+    return { out: O(<div className="out">{new Date().toString().toLowerCase()}</div>) };
   if (lower === "matrix")
     return { out: O(<div className="ok">entrando a la matrix…</div>), action: "matrix" };
   if (lower === "crash" || lower === "throw" || lower.startsWith("throw "))
@@ -170,7 +170,7 @@ function runCommand(raw: string): {
     lower === "git push --inscribite" ||
     lower === "deploy"
   )
-    return { out: O(<div className="ok">abriendo inscripción en Luma…</div>), action: "inscribite" };
+    return { out: O(<div className="ok">abriendo inscripción en luma…</div>), action: "inscribite" };
   return {
     out: O(
       <div className="out">
@@ -294,7 +294,7 @@ export function Terminal() {
 
   return (
     <div ref={ref}>
-      <WindowChrome title="~/uruhack — zsh" tag="terminal">
+      <WindowChrome title="~/build-101 — zsh" tag="terminal">
         <div
           className="win-body term-body"
           ref={bodyRef}

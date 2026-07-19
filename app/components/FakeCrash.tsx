@@ -72,7 +72,7 @@ export function FakeCrash() {
         <div className="crash-top">
           <span className="crash-badge">{fixed ? "0 errors" : "1 error"}</span>
           <span className="crash-toptitle">
-            {fixed ? "All good — 0 issues" : "Unhandled Runtime Error"}
+            {fixed ? "all good — 0 issues" : "unhandled runtime error"}
           </span>
           <button className="crash-x" onClick={close} aria-label="cerrar">
             ✕
@@ -84,8 +84,8 @@ export function FakeCrash() {
             {fixed ? "Error: resuelto ✓" : "Error: too much hype"}
           </div>
 
-          <div className="crash-label">Source</div>
-          <div className="crash-src">app/page.tsx (42:11) @ UruHack</div>
+          <div className="crash-label">source</div>
+          <div className="crash-src">app/page.tsx (42:11) @ build 101</div>
           <pre className="crash-code">
             <span className="cl-dim">  40 | </span>const energy = useHype()
             {"\n"}
@@ -105,9 +105,9 @@ export function FakeCrash() {
             <span className="cl-dim">  43 | </span>{"}"}
           </pre>
 
-          <div className="crash-label">Call Stack</div>
+          <div className="crash-label">call stack</div>
           <div className="crash-frame">
-            UruHack <span>app/page.tsx (42:11)</span>
+            build 101 <span>app/page.tsx (42:11)</span>
           </div>
           <div className="crash-frame">
             renderHackathon <span>app/components/Hero.tsx (88:3)</span>
@@ -126,7 +126,7 @@ export function FakeCrash() {
           )}
           {fixed && (
             <span className="cf-ok">
-              ✓ Fixed in 1 commit · 0 errors · <span className="spark">deploy o nada</span>
+              ✓ fixed in 1 commit · 0 errors · <span className="spark">deploy o nada</span>
             </span>
           )}
         </div>

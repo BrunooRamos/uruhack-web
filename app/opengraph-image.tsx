@@ -1,28 +1,27 @@
 import { ImageResponse } from "next/og";
 import { readFile } from "node:fs/promises";
 import { join } from "node:path";
-import { EVENT_DATES, OG_IMAGE_ALT, VENUE } from "./event";
+import { OG_IMAGE_ALT } from "./event";
 
-// Social card (WhatsApp / X / LinkedIn / Slack). Se genera en build —
-// editá los datos en event.ts y este archivo solo para el diseño.
+// Social card (WhatsApp / X / LinkedIn / Slack). Se genera en build.
+// Póster de marca: monocromo, todo en minúsculas.
 export const alt = OG_IMAGE_ALT;
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
-const BLUE = "#1f4fe0";
-const NAVY = "#20253a";
-const BG = "#f6f7f9";
-const MUTED = "#5b6478";
+const BG = "#000000";
+const WHITE = "#ffffff";
+const GRAY = "#a3a3a3";
 
 async function font(file: string) {
   return readFile(join(process.cwd(), "assets/fonts", file));
 }
 
 export default async function Image() {
-  const [displayBold, monoRegular, monoMedium] = await Promise.all([
-    font("SpaceGrotesk-Bold.ttf"),
-    font("JetBrainsMono-Regular.ttf"),
-    font("JetBrainsMono-Medium.ttf"),
+  const [monoRegular, monoMedium, monoSemiBold] = await Promise.all([
+    font("GeistMono-Regular.ttf"),
+    font("GeistMono-Medium.ttf"),
+    font("GeistMono-SemiBold.ttf"),
   ]);
 
   return new ImageResponse(
@@ -33,80 +32,61 @@ export default async function Image() {
           height: "100%",
           display: "flex",
           flexDirection: "column",
+          justifyContent: "space-between",
           background: BG,
-          backgroundImage:
-            "linear-gradient(#e8ebf1 1px, transparent 1px), linear-gradient(90deg, #e8ebf1 1px, transparent 1px)",
-          backgroundSize: "44px 44px",
-          fontFamily: "Space Grotesk",
+          padding: "64px 72px",
+          fontFamily: "Geist Mono",
         }}
       >
-        <div style={{ display: "flex", height: 10, width: "100%", background: BLUE }} />
-
+        {/* label */}
         <div
           style={{
             display: "flex",
-            flexDirection: "column",
-            flexGrow: 1,
-            padding: "52px 72px 56px",
+            fontSize: 26,
+            fontWeight: 400,
+            color: GRAY,
           }}
         >
-          {/* wordmark */}
-          <div style={{ display: "flex", fontSize: 44, fontWeight: 700, letterSpacing: -1 }}>
-            <span style={{ color: BLUE }}>&lt;Uru</span>
-            <span style={{ color: NAVY }}>Hack</span>
-            <span style={{ color: BLUE }}>&gt;</span>
-          </div>
+          batch 001 — montevideo
+        </div>
 
-          {/* main copy */}
-          <div style={{ display: "flex", flexDirection: "column", marginTop: "auto" }}>
-            <div
-              style={{
-                display: "flex",
-                fontFamily: "JetBrains Mono",
-                fontSize: 24,
-                fontWeight: 500,
-                color: BLUE,
-                letterSpacing: 4,
-                marginBottom: 20,
-              }}
-            >
-              {"// HACKATHON · ZERO TO PRODUCT"}
-            </div>
-            <div
-              style={{
-                display: "flex",
-                flexDirection: "column",
-                fontSize: 84,
-                fontWeight: 700,
-                color: NAVY,
-                letterSpacing: -3,
-                lineHeight: 1.04,
-              }}
-            >
-              <span>
-                Construí un producto <span style={{ color: BLUE, marginLeft: 20 }}>real</span>,
-              </span>
-              <span>en 24 horas.</span>
-            </div>
-          </div>
+        {/* headline */}
+        <div
+          style={{
+            display: "flex",
+            fontSize: 96,
+            fontWeight: 600,
+            color: WHITE,
+            letterSpacing: -3.8,
+            lineHeight: 1.05,
+            maxWidth: 980,
+          }}
+        >
+          36 horas. un producto. una demo.
+        </div>
 
-          {/* facts row */}
+        {/* footer */}
+        <div
+          style={{
+            display: "flex",
+            alignItems: "flex-end",
+            justifyContent: "space-between",
+          }}
+        >
           <div
             style={{
               display: "flex",
-              alignItems: "center",
-              gap: 16,
-              marginTop: 48,
-              fontFamily: "JetBrains Mono",
-              fontSize: 23,
-              color: MUTED,
+              fontSize: 40,
+              fontWeight: 600,
+              color: WHITE,
+              letterSpacing: -1.6,
             }}
           >
-            <span style={{ color: NAVY, fontWeight: 500 }}>{EVENT_DATES}</span>
-            <span style={{ color: BLUE }}>·</span>
-            <span style={{ color: NAVY, fontWeight: 500 }}>{VENUE}</span>
-            <span style={{ color: BLUE }}>·</span>
-            <span style={{ color: NAVY, fontWeight: 500 }}>gratis, cupos limitados</span>
+            build 101
+          </div>
+          <div style={{ display: "flex", fontSize: 30, fontWeight: 500 }}>
+            <span style={{ color: WHITE }}>aplicar&nbsp;</span>
+            <span style={{ color: GRAY }}>→</span>
           </div>
         </div>
       </div>
@@ -114,9 +94,9 @@ export default async function Image() {
     {
       ...size,
       fonts: [
-        { name: "Space Grotesk", data: displayBold, style: "normal", weight: 700 },
-        { name: "JetBrains Mono", data: monoRegular, style: "normal", weight: 400 },
-        { name: "JetBrains Mono", data: monoMedium, style: "normal", weight: 500 },
+        { name: "Geist Mono", data: monoRegular, style: "normal", weight: 400 },
+        { name: "Geist Mono", data: monoMedium, style: "normal", weight: 500 },
+        { name: "Geist Mono", data: monoSemiBold, style: "normal", weight: 600 },
       ],
     },
   );

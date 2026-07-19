@@ -1,3 +1,4 @@
+import { Star } from "lucide-react";
 import { Reveal } from "./Reveal";
 
 export function Tracks() {
@@ -12,10 +13,10 @@ export function Tracks() {
             <div className="eyebrow" style={{ justifyContent: "center" }}>
               <span className="slash">//</span> tracks
             </div>
-            <h2 style={{ margin: "0 auto" }}>Un track principal, y tracks por sponsor.</h2>
+            <h2 style={{ margin: "0 auto" }}>un track principal, y tracks por sponsor.</h2>
             <p className="lead" style={{ margin: "16px auto 0" }}>
-              Todos los equipos compiten en el track{" "}
-              <span className="bracket">General</span>. Si querés, sumás tu
+              todos los equipos compiten en el track{" "}
+              <span className="bracket">general</span>. si querés, sumás tu
               proyecto a un track por sponsor y competís por un premio extra.
             </p>
           </div>
@@ -23,10 +24,12 @@ export function Tracks() {
 
         <Reveal>
           <div className="track-general">
-            <div className="tg-badge">★ Track principal</div>
-            <h3>General</h3>
+            <div className="tg-badge">
+              <Star size={14} strokeWidth={1.5} aria-hidden /> track principal
+            </div>
+            <h3>general</h3>
             <p>
-              Cualquier vertical, B2C o B2B. Acá compiten todos los equipos — la
+              cualquier vertical, b2c o b2b. acá compiten todos los equipos — la
               mejor ejecución se lleva el premio principal.
             </p>
           </div>
@@ -35,7 +38,7 @@ export function Tracks() {
         <Reveal>
           <div className="tracks-soon">
             <span className="tracks-sub">// tracks por sponsor</span>
-            <p>Se anunciarán más adelante.</p>
+            <p>se anunciarán más adelante.</p>
           </div>
         </Reveal>
       </div>

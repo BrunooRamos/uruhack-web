@@ -1,4 +1,3 @@
-import { Magnetic } from "./Magnetic";
 import { InscribiteBtn } from "./DeployFX";
 import { APPLY_DEADLINE } from "../event";
 
@@ -6,11 +5,9 @@ import { APPLY_DEADLINE } from "../event";
 export function ApplyCTA() {
   return (
     <div className="apply-cta">
-      <Magnetic>
-        <InscribiteBtn className="btn">Aplicar →</InscribiteBtn>
-      </Magnetic>
+      <InscribiteBtn className="btn">aplicar →</InscribiteBtn>
       <p className="note">
-        Inscripciones hasta el {APPLY_DEADLINE} · cupos limitados.
+        inscripciones hasta el {APPLY_DEADLINE} · cupos limitados.
       </p>
     </div>
   );

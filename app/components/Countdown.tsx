@@ -29,7 +29,7 @@ export function Countdown() {
   }, []);
 
   return (
-    <div className="countdown" role="timer" aria-label="Cuenta regresiva al cierre de inscripciones">
+    <div className="countdown" role="timer" aria-label="cuenta regresiva al cierre de inscripciones">
       <span className="cd-prompt">$ cierre --inscripciones</span>
       <span className="cd-clock">
         <b>{t ? t.d : "--"}</b>d <b>{t ? pad(t.h) : "--"}</b>:

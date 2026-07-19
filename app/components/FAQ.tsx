@@ -10,7 +10,7 @@ export function FAQ() {
             <div className="eyebrow" style={{ justifyContent: "center" }}>
               <span className="slash">//</span> faq — preguntas frecuentes
             </div>
-            <h2 style={{ margin: "0 auto" }}>Preguntas frecuentes.</h2>
+            <h2 style={{ margin: "0 auto" }}>preguntas frecuentes.</h2>
           </div>
         </Reveal>
 

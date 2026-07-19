@@ -17,23 +17,23 @@ import { FAQS } from "../faqs";
 export const dynamic = "force-static";
 
 export function GET() {
-  const body = `# UruHack
+  const body = `# build 101
 
 > ${EVENT_DESCRIPTION}
 
-## Datos clave
+## datos clave
 
-- Qué: hackathon presencial de 24 horas ("Zero to Product": se construye un producto real y funcionando durante el evento).
-- Cuándo: ${EVENT_DATES_LONG}.
-- Dónde: ${VENUE}, ${VENUE_ADDRESS}, Uruguay.
-- Precio: gratis, con cupos limitados y selección del equipo organizador.
-- Equipos: ${TEAM_SIZE} personas; la inscripción es individual (te ayudamos a formar equipo).
-- Cierre de inscripción: ${APPLY_DEADLINE} (hora de Uruguay).
-- Inscripción: ${LUMA_URL}
-- Sitio oficial: ${CANONICAL_URL}
-- Contacto: ${CONTACT_EMAIL}
+- qué: hackathon presencial de 36 horas: se construye un producto real y funcionando durante el evento.
+- cuándo: ${EVENT_DATES_LONG}.
+- dónde: ${VENUE}, ${VENUE_ADDRESS}, uruguay.
+- precio: gratis, con cupos limitados y selección del equipo organizador.
+- equipos: ${TEAM_SIZE} personas; la inscripción es individual (te ayudamos a formar equipo).
+- cierre de inscripción: ${APPLY_DEADLINE} (hora de uruguay).
+- inscripción: ${LUMA_URL}
+- sitio oficial: ${CANONICAL_URL}
+- contacto: ${CONTACT_EMAIL}
 
-## Preguntas frecuentes
+## preguntas frecuentes
 
 ${FAQS.map((f) => `### ${f.q}\n\n${f.aText}`).join("\n\n")}
 `;

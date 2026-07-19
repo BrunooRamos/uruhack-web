@@ -1,7 +1,6 @@
 import { Logo } from "./components/Logo";
 import { Reveal } from "./components/Reveal";
 import { ScrollProgress } from "./components/ScrollProgress";
-import { ParticleField } from "./components/ParticleField";
 import { Hero } from "./components/Hero";
 import { Sponsors } from "./components/Sponsors";
 import { Tracks } from "./components/Tracks";
@@ -9,7 +8,6 @@ import { Mentors } from "./components/Mentors";
 import { FAQ } from "./components/FAQ";
 import { ApplyCTA } from "./components/ApplyCTA";
 import { Countdown } from "./components/Countdown";
-import { Magnetic } from "./components/Magnetic";
 import { KonamiMatrix } from "./components/KonamiMatrix";
 import { DeployFX, InscribiteBtn } from "./components/DeployFX";
 import { FakeCrash } from "./components/FakeCrash";
@@ -25,24 +23,29 @@ import {
 
 const AGENDA = [
   {
-    d: "Sáb · 10h",
-    t: "Acreditación & kickoff",
-    s: "Llegada, café y presentación de la consigna, la sede y los sponsors.",
+    d: "sáb · 8h",
+    t: "acreditación & kickoff",
+    s: "llegada, café y presentación de la consigna, la sede y los sponsors.",
   },
   {
-    d: "Sáb · 12h",
-    t: "Arranca el build",
-    s: "Equipos a fondo: definición de scope y primeras líneas. Mentoría 1:1 disponible.",
+    d: "sáb · 12h",
+    t: "arranca el build",
+    s: "equipos a fondo: definición de scope y primeras líneas. mentoría 1:1 disponible.",
   },
   {
-    d: "Sáb · noche",
-    t: "Build a fondo",
-    s: "Las horas pesadas, con comidas y café. Mentores rotando por los equipos.",
+    d: "sáb · noche",
+    t: "build a fondo",
+    s: "las horas pesadas, con comidas y café. mentores rotando por los equipos.",
   },
   {
-    d: "Dom · 10h",
-    t: "Demos & premiación",
-    s: "Cada equipo muestra su producto funcionando. Jurado, premios y cierre.",
+    d: "dom · mañana",
+    t: "último sprint",
+    s: "las últimas horas: cerrar features, arreglar bugs y dejar la demo pronta.",
+  },
+  {
+    d: "dom · 18h",
+    t: "demos & premiación",
+    s: "cada equipo muestra su producto funcionando. jurado, premios y cierre.",
   },
 ];
 
@@ -50,7 +53,6 @@ export default function Home() {
   return (
     <>
       <StructuredData />
-      <ParticleField />
       <ScrollProgress />
       <KonamiMatrix />
       <DeployFX />
@@ -68,9 +70,7 @@ export default function Home() {
               <a href="#build">// programa</a>
               <a href="#faq">// faq</a>
             </div>
-            <Magnetic strength={0.3}>
-              <InscribiteBtn className="btn">Aplicar →</InscribiteBtn>
-            </Magnetic>
+            <InscribiteBtn className="btn">aplicar →</InscribiteBtn>
           </div>
         </div>
       </nav>
@@ -95,11 +95,11 @@ export default function Home() {
           <Reveal>
             <div className="stage-head">
               <div className="eyebrow">
-                <span className="slash">//</span> Programa &amp; lugar
+                <span className="slash">//</span> programa &amp; lugar
               </div>
-              <h2>El día, hora por hora.</h2>
+              <h2>dos días, hora por hora.</h2>
               <p className="lead">
-                24 horas con estructura, no improvisación.{" "}
+                36 horas con estructura, no improvisación.{" "}
                 <span className="comment">
                   // cronograma preliminar, se confirma antes del evento.
                 </span>
@@ -125,18 +125,18 @@ export default function Home() {
                 <div className="lugar-photos">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
-                    src="/hyatt-rooftop.webp"
-                    alt="Azotea del Hyatt Centric Montevideo al atardecer, con vista a la rambla"
-                    width={1280}
-                    height={720}
+                    src="/fium-fachada.webp"
+                    alt="fachada de la facultad de ingeniería (fium), universidad de montevideo, en el parque tecnológico del latu"
+                    width={1920}
+                    height={768}
                     loading="lazy"
                   />
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
-                    src="/hyatt-exterior.webp"
-                    alt="Entrada del Hyatt Centric Montevideo"
-                    width={1280}
-                    height={711}
+                    src="/fium-campus.webp"
+                    alt="edificio del campus de la universidad de montevideo (fium)"
+                    width={1200}
+                    height={677}
                     loading="lazy"
                   />
                 </div>
@@ -152,7 +152,7 @@ export default function Home() {
                     rel="noopener noreferrer"
                     className="lugar-map"
                   >
-                    Ver en el mapa →
+                    ver en el mapa →
                   </a>
                 </div>
               </div>
@@ -169,11 +169,11 @@ export default function Home() {
         <div className="wrap split2 inscripcion">
           <Reveal>
             <div className="eyebrow">
-              <span className="slash">//</span> Inscripción
+              <span className="slash">//</span> inscripción
             </div>
-            <h2>Aplicá a UruHack.</h2>
+            <h2>buscamos builders.</h2>
             <p className="lead">
-              La inscripción es individual y gratuita, con cupos limitados.
+              la inscripción es individual y gratuita, con cupos limitados.
             </p>
             <div className="apply-meta">
               <div>
@@ -183,12 +183,12 @@ export default function Home() {
                 <span>// sábado a domingo</span>
               </div>
               <div>
-                <b>24 horas</b>
+                <b>36 horas</b>
                 <span>// build continuo</span>
               </div>
               <div>
-                <b>Hyatt Centric</b>
-                <span>// Montevideo</span>
+                <b>fium</b>
+                <span>// montevideo</span>
               </div>
             </div>
           </Reveal>
@@ -201,6 +201,14 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ============ CLOSING BAND ============ */}
+      <section className="closing-band">
+        <div className="wrap">
+          <p className="closing-line">construí. shippeá. repetí.</p>
+          <p className="closing-sub">menos charla, más producto.</p>
+        </div>
+      </section>
+
       {/* ============ FOOTER ============ */}
       <footer>
         <div className="wrap">
@@ -208,7 +216,7 @@ export default function Home() {
             <div>
               <Logo />
               <p className="foot-copy">
-                Zero to Product en 24 horas —{" "}
+                zero to product en 36 horas —{" "}
                 <time dateTime={EVENT_START_DATE}>{EVENT_DATES}</time>.
               </p>
               <p className="foot-copy" style={{ marginTop: 8 }}>
@@ -220,19 +228,19 @@ export default function Home() {
             <div className="foot-links">
               <div className="foot-col">
                 <b>// evento</b>
-                <a href="#tracks">Tracks</a>
-                <a href="#build">Programa</a>
-                <a href="#faq">FAQ</a>
+                <a href="#tracks">tracks</a>
+                <a href="#build">programa</a>
+                <a href="#faq">faq</a>
               </div>
               <div className="foot-col">
                 <b>// participá</b>
-                <InscribiteBtn className="">Aplicar</InscribiteBtn>
-                <a href={`mailto:${CONTACT_EMAIL}`}>Contacto</a>
+                <InscribiteBtn className="">aplicar</InscribiteBtn>
+                <a href={`mailto:${CONTACT_EMAIL}`}>contacto</a>
               </div>
             </div>
           </div>
           <div className="foot-bottom">
-            <span>© 2026 UruHack · Montevideo, Uruguay</span>
+            <span>© 2026 build 101 · montevideo, uruguay</span>
             <span>
               build: <span className="spark">stable</span>
             </span>

@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Space_Grotesk, Inter, JetBrains_Mono } from "next/font/google";
+import { Geist_Mono } from "next/font/google";
 import {
   CANONICAL_URL,
   SEO_DESCRIPTION,
@@ -9,22 +9,13 @@ import {
 } from "./event";
 import "./globals.css";
 
-const display = Space_Grotesk({
-  subsets: ["latin"],
-  variable: "--font-display",
-  weight: ["400", "500", "600", "700"],
-});
-
-const sans = Inter({
-  subsets: ["latin"],
-  variable: "--font-sans",
-  weight: ["400", "500", "600"],
-});
-
-const mono = JetBrains_Mono({
+// build 101 uses a single typeface — geist mono, exclusively (no secondary font).
+// variable font: omit `weight` to self-host the full axis (we only ever render 400/500/600).
+// keep the CSS var named --font-mono so globals.css bindings stay intact.
+const mono = Geist_Mono({
   subsets: ["latin"],
   variable: "--font-mono",
-  weight: ["400", "500", "600", "700"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -40,13 +31,14 @@ export const metadata: Metadata = {
     },
   },
   keywords: [
-    "UruHack",
-    "hackathon Uruguay",
-    "hackathon Montevideo",
+    "build 101",
+    "hackathon uruguay",
+    "hackathon montevideo",
     "hackathon 2026",
-    "jóvenes builders Uruguay",
-    "programación Uruguay",
-    "diseño de producto Uruguay",
+    "36 horas",
+    "mvp en un fin de semana",
+    "builders uruguay",
+    "product building montevideo",
   ],
   authors: [{ name: SITE_NAME, url: CANONICAL_URL }],
   creator: SITE_NAME,
@@ -81,19 +73,15 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#f6f7f9",
+  themeColor: "#ffffff",
 };
 
 export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="es">
-      <body
-        className={`${display.variable} ${sans.variable} ${mono.variable}`}
-      >
-        {children}
-      </body>
+    <html lang="es-UY">
+      <body className={mono.variable}>{children}</body>
     </html>
   );
 }
