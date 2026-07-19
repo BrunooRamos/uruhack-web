@@ -69,7 +69,7 @@ export function KonamiMatrix() {
 
     let raf = 0;
     const draw = () => {
-      ctx.fillStyle = "rgba(8, 11, 22, 0.12)";
+      ctx.fillStyle = "rgba(0, 0, 0, 0.12)";
       ctx.fillRect(0, 0, vw, vh);
       ctx.font = `${fontSize}px ui-monospace, monospace`;
       for (let i = 0; i < cols; i++) {
@@ -77,7 +77,7 @@ export function KonamiMatrix() {
         const x = i * fontSize;
         const y = drops[i] * fontSize;
         ctx.fillStyle =
-          Math.random() < 0.04 ? "#ffd23f" : Math.random() < 0.5 ? "#4a72f0" : "#2bbf6a";
+          Math.random() < 0.04 ? "#ffffff" : Math.random() < 0.5 ? "#a3a3a3" : "#525252";
         ctx.fillText(ch, x, y);
         if (y > vh && Math.random() > 0.975) drops[i] = 0;
         drops[i]++;

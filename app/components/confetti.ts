@@ -1,4 +1,4 @@
-/** Dependency-free confetti burst. Fires colored shards from a point. */
+/** Dependency-free confetti burst. Fires monochrome shards from a point. */
 export function fireConfetti(origin?: { x: number; y: number }) {
   if (typeof window === "undefined") return;
   if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
@@ -20,7 +20,7 @@ export function fireConfetti(origin?: { x: number; y: number }) {
   canvas.height = H * dpr;
   ctx.scale(dpr, dpr);
 
-  const colors = ["#1f4fe0", "#4a72f0", "#ffd23f", "#2bbf6a", "#ffffff"];
+  const colors = ["#000000", "#404040", "#a3a3a3", "#ffffff"];
   const ox = origin?.x ?? W / 2;
   const oy = origin?.y ?? H * 0.4;
 

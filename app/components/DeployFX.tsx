@@ -77,7 +77,7 @@ export function DeployFX() {
             <i />
             <i />
           </span>
-          <span className="win-title">deploy · uruhack.uy</span>
+          <span className="win-title">deploy · build101.org</span>
           <span className="win-tag">CI</span>
         </div>
         <div className="deploy-body">
@@ -101,7 +101,7 @@ export function DeployFX() {
           })}
           <div className={`deploy-live ${live ? "on" : ""}`}>
             <span className="live-dot" />{" "}
-            {live ? "● Abriendo inscripción en Luma…" : "esperando deploy…"}
+            {live ? "abriendo inscripción en luma…" : "esperando deploy…"}
           </div>
         </div>
       </div>

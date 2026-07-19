@@ -2,13 +2,13 @@ import { ImageResponse } from "next/og";
 import { readFile } from "node:fs/promises";
 import { join } from "node:path";
 
-// Favicon generado en build: monograma <U> sobre el azul de marca.
+// Favicon generado en build: glyph "b_" (una b + cursor block) blanco sobre negro.
 export const size = { width: 512, height: 512 };
 export const contentType = "image/png";
 
 export default async function Icon() {
-  const displayBold = await readFile(
-    join(process.cwd(), "assets/fonts/SpaceGrotesk-Bold.ttf"),
+  const monoSemiBold = await readFile(
+    join(process.cwd(), "assets/fonts/GeistMono-SemiBold.ttf"),
   );
 
   return new ImageResponse(
@@ -18,24 +18,34 @@ export default async function Icon() {
           width: "100%",
           height: "100%",
           display: "flex",
-          alignItems: "center",
+          alignItems: "flex-end",
           justifyContent: "center",
-          background: "#1f4fe0",
-          borderRadius: 100,
-          fontFamily: "Space Grotesk",
+          background: "#000000",
+          fontFamily: "Geist Mono",
           fontSize: 300,
-          fontWeight: 700,
+          fontWeight: 600,
+          letterSpacing: -12,
           color: "#ffffff",
+          padding: "0 0 150px",
         }}
       >
-        <span style={{ color: "rgba(255,255,255,0.6)", marginRight: 6 }}>&lt;</span>
-        <span>U</span>
-        <span style={{ color: "rgba(255,255,255,0.6)", marginLeft: 6 }}>&gt;</span>
+        <span style={{ lineHeight: 1 }}>b</span>
+        <div
+          style={{
+            display: "flex",
+            width: 118,
+            height: 200,
+            background: "#ffffff",
+            marginLeft: 16,
+          }}
+        />
       </div>
     ),
     {
       ...size,
-      fonts: [{ name: "Space Grotesk", data: displayBold, style: "normal", weight: 700 }],
+      fonts: [
+        { name: "Geist Mono", data: monoSemiBold, style: "normal", weight: 600 },
+      ],
     },
   );
 }

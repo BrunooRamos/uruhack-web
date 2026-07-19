@@ -9,16 +9,16 @@ type Person = {
   confirmed: boolean;
 };
 
-// TODO(uruhack): reemplazá por mentores y jurado reales (nombre, rol, empresa, foto).
+// TODO(build101): reemplazá por mentores y jurado reales (nombre, rol, empresa, foto).
 // Mientras no estén confirmados, el nombre no se renderiza como texto
 // (evita indexar "Por anunciar" repetido en buscadores).
 const PEOPLE: Person[] = [
-  { name: "", role: "Mentor · Ingeniería", org: "—", confirmed: false },
-  { name: "", role: "Mentor · Producto", org: "—", confirmed: false },
-  { name: "", role: "Mentor · Diseño", org: "—", confirmed: false },
-  { name: "", role: "Jurado", org: "—", confirmed: false },
-  { name: "", role: "Jurado", org: "—", confirmed: false },
-  { name: "", role: "Jurado", org: "—", confirmed: false },
+  { name: "", role: "mentor · ingeniería", org: "—", confirmed: false },
+  { name: "", role: "mentor · producto", org: "—", confirmed: false },
+  { name: "", role: "mentor · diseño", org: "—", confirmed: false },
+  { name: "", role: "jurado", org: "—", confirmed: false },
+  { name: "", role: "jurado", org: "—", confirmed: false },
+  { name: "", role: "jurado", org: "—", confirmed: false },
 ];
 
 export function Mentors() {
@@ -30,10 +30,10 @@ export function Mentors() {
             <div className="eyebrow">
               <span className="slash">//</span> mentores &amp; jurado
             </div>
-            <h2>Quién te va a guiar.</h2>
+            <h2>quién te va a guiar.</h2>
             <p className="lead">
-              Mentores del ecosistema acompañan a los equipos durante el build, y
-              un jurado técnico evalúa los productos al final. Anuncio próximamente.
+              mentores del ecosistema acompañan a los equipos durante el build, y
+              un jurado técnico evalúa los productos al final. anuncio próximamente.
             </p>
           </div>
         </Reveal>
@@ -55,7 +55,7 @@ export function Mentors() {
 
         <Reveal>
           <div className="mentors-cta">
-            ¿Querés mentorear o ser parte del jurado? Escribinos a{" "}
+            ¿querés mentorear o ser parte del jurado? escribinos a{" "}
             <a href={`mailto:${CONTACT_EMAIL}`} className="bracket">
               {CONTACT_EMAIL}
             </a>

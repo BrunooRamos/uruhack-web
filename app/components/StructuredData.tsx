@@ -66,7 +66,7 @@ const structuredData = {
       "@type": "WebPage",
       "@id": webpageId,
       url: CANONICAL_URL,
-      name: "UruHack 2026 — Hackathon de 24 horas en Montevideo",
+      name: "build 101 — hackathon de 36 horas en montevideo",
       isPartOf: { "@id": websiteId },
       about: { "@id": eventId },
       primaryImageOfPage: OG_IMAGE_URL,
@@ -76,7 +76,7 @@ const structuredData = {
     {
       "@type": "Event",
       "@id": eventId,
-      name: "UruHack 2026",
+      name: "build 101",
       alternateName: SITE_NAME,
       description: EVENT_DESCRIPTION,
       url: CANONICAL_URL,
@@ -88,7 +88,7 @@ const structuredData = {
       eventStatus: "https://schema.org/EventScheduled",
       inLanguage: "es-UY",
       keywords:
-        "hackathon Uruguay, hackathon Montevideo, UruHack, builders Uruguay, programación, diseño, producto",
+        "hackathon uruguay, hackathon montevideo, build 101, 36 horas, builders uruguay, programación, diseño, producto",
       location: {
         "@type": "Place",
         name: VENUE,
@@ -118,7 +118,7 @@ const structuredData = {
       },
       audience: {
         "@type": "Audience",
-        audienceType: `Jóvenes builders de Uruguay en equipos de ${TEAM_SIZE} personas`,
+        audienceType: `jóvenes builders de uruguay en equipos de ${TEAM_SIZE} personas`,
       },
       isAccessibleForFree: true,
     },

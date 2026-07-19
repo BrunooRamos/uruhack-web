@@ -86,7 +86,7 @@ export function Sponsors() {
 
           <div style={{ textAlign: "center" }}>
             <a href={`mailto:${CONTACT_EMAIL}`} className="btn btn-ghost">
-              Quiero ser sponsor →
+              quiero ser sponsor →
             </a>
           </div>
         </Reveal>
