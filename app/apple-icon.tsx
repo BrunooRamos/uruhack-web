@@ -36,7 +36,7 @@ export default async function AppleIcon() {
             display: "flex",
             width: 41,
             height: 70,
-            background: "#ffffff",
+            background: "#2563eb",
             marginLeft: 6,
           }}
         />

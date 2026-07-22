@@ -106,7 +106,20 @@ const structuredData = {
           longitude: VENUE_GEO.lng,
         },
       },
-      organizer: { "@id": organizationId },
+      organizer: [
+        { "@id": organizationId },
+        {
+          "@type": "EducationalOrganization",
+          name: "Universidad de Montevideo",
+          url: "https://um.edu.uy",
+        },
+      ],
+      sponsor: [
+        {
+          "@type": "Organization",
+          name: "Freedom 250",
+        },
+      ],
       offers: {
         "@type": "Offer",
         url: LUMA_URL,

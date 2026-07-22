@@ -27,7 +27,7 @@ export function GET() {
 - cuándo: ${EVENT_DATES_LONG}.
 - dónde: ${VENUE}, ${VENUE_ADDRESS}, uruguay.
 - precio: gratis, con cupos limitados y selección del equipo organizador.
-- equipos: ${TEAM_SIZE} personas; la inscripción es individual (te ayudamos a formar equipo).
+- equipos: ${TEAM_SIZE} personas; la inscripción es por equipo (si no tenés, te ayudamos a formar uno).
 - cierre de inscripción: ${APPLY_DEADLINE} (hora de uruguay).
 - inscripción: ${LUMA_URL}
 - sitio oficial: ${CANONICAL_URL}

@@ -5,11 +5,11 @@
 
 /** Identidad pública del sitio. */
 export const SITE_NAME = "build 101";
-export const SITE_URL = "https://build101.org";
+export const SITE_URL = "https://build101.dev";
 export const CANONICAL_URL = `${SITE_URL}/`;
 export const OG_IMAGE_URL = `${SITE_URL}/opengraph-image`;
 export const OG_IMAGE_ALT =
-  "build 101 — hackathon de 36 horas: un producto, una demo. 17 y 18 de octubre de 2026, universidad de montevideo (fium). gratis, cupos limitados.";
+  "build 101 — hackathon de 36 horas: un producto, una demo. 17 y 18 de octubre de 2026, universidad de montevideo - latu. gratis, cupos limitados.";
 // el logo de marca es el avatar "b_" que renderiza la ruta /icon en build.
 export const LOGO_URL = `${SITE_URL}/icon`;
 
@@ -18,15 +18,15 @@ export const LOGO_URL = `${SITE_URL}/icon`;
 export const SEO_TITLE =
   "build 101 — 36 horas, un producto, una demo | hackathon en montevideo";
 export const SEO_DESCRIPTION =
-  "build 101 es un hackathon gratuito de 36 horas en montevideo: un fin de semana, un producto, una demo. equipos de 3 a 5, inscripción individual, cupos limitados.";
+  "build 101 es una hackathon gratuita de 36 horas en montevideo: un fin de semana, un producto, una demo. inscribí a tu equipo de 3 a 4, cupos limitados.";
 
 /** Descripción larga para datos estructurados (Event) y answer engines. */
 export const EVENT_DESCRIPTION =
-  "build 101 es un hackathon gratuito de 36 horas para jóvenes builders uruguayos. aplicá individualmente, formá un equipo de 3 a 5 personas y construí un producto real y funcionando el 17 y 18 de octubre de 2026 en la universidad de montevideo (fium).";
+  "build 101 es una hackathon gratuita de 36 horas para jóvenes builders uruguayos. inscribí a tu equipo de 3 a 4 personas y construí un producto real y funcionando el 17 y 18 de octubre de 2026 en la universidad de montevideo - latu.";
 
 /** Última actualización de contenido del sitio (bumpeala con cada anuncio real:
  *  tracks, mentores, sponsors, cronograma). Alimenta sitemap y schema. */
-export const CONTENT_UPDATED_ISO = "2026-07-19T00:00:00-03:00";
+export const CONTENT_UPDATED_ISO = "2026-07-21T00:00:00-03:00";
 
 /** Link de inscripción en Luma (selección con aprobación del organizador). */
 export const LUMA_URL = "https://luma.com/2kxg61n8";
@@ -37,7 +37,7 @@ export const SOCIAL_PROFILES = [LUMA_URL];
 
 /** Sede. NOTA: estos valores alimentan schema.org Place/PostalAddress, que espera
  *  nombres propios con mayúsculas — se muestran en minúsculas en la capa de UI. */
-export const VENUE = "Universidad de Montevideo (FIUM)";
+export const VENUE = "Universidad de Montevideo - LATU";
 export const VENUE_ADDRESS =
   "Av. Dra. María Luisa Saldún de Rodríguez 2097, Montevideo";
 export const VENUE_REGION = "Montevideo";
@@ -57,6 +57,13 @@ export const EVENT_START_DATE = "2026-10-17";
 export const EVENT_KICKOFF_ISO = "2026-10-17T08:00:00-03:00";
 export const EVENT_END_ISO = "2026-10-18T20:00:00-03:00";
 
+/** Horario confirmado de sede (no se pernocta: la sede cierra de noche).
+ *  El cronograma detallado está a publicar. */
+export const VENUE_HOURS = [
+  { day: "sábado 17", hours: "08:00 → 22:00" },
+  { day: "domingo 18", hours: "08:00 → 20:00" },
+];
+
 /** Inscripciones: apertura y cierre (cuenta regresiva del hero/inscripción).
  *  TODO(build101): confirmar fecha real de apertura y cierre para la fecha de octubre. */
 export const APPLY_OPEN_ISO = "2026-07-01T00:00:00-03:00";
@@ -65,7 +72,7 @@ export const APPLY_DEADLINE = "27 de septiembre, 23:59";
 
 /** Formato. */
 export const DURATION_HOURS = 36;
-export const TEAM_SIZE = "3 a 5";
+export const TEAM_SIZE = "3 a 4";
 
 /** Contacto. TODO(build101): confirmar que el buzón existe. */
-export const CONTACT_EMAIL = "hola@build101.org";
+export const CONTACT_EMAIL = "hola@build101.dev";

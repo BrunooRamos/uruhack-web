@@ -14,14 +14,13 @@ export function Hero() {
               la hackathon más grande de uruguay.
             </span>
             <span className="hero-h1-main rise d1">
-              construí algo que genere valor.
+              <em className="h1-accent">zero to product</em> en 36 horas.
             </span>
           </h1>
           <p className="lead hero-lead rise d2">
-            build 101 es un hackathon de 36 horas para jóvenes builders
-            uruguayos. equipos de 3 a 5 personas construyen un producto real y
-            funcionando en un fin de semana. inscripción individual, gratuita y
-            con cupos limitados.
+            armás un equipo de 3 a 4, construís un producto real y lo mostrás
+            funcionando el domingo. inscribí a tu equipo: gratis y con cupos
+            limitados.
           </p>
           <div className="hero-cta rise d3">
             <InscribiteBtn className="btn">aplicar →</InscribiteBtn>
@@ -39,13 +38,29 @@ export function Hero() {
             <span className="meta-sep" aria-hidden />
             <div className="meta-item">
               <span className="meta-k">dónde</span>
-              <span className="meta-v">fium · montevideo</span>
+              <span className="meta-v">universidad de montevideo - latu</span>
             </div>
           </div>
         </div>
 
         <div className="hero-term rise d2">
           <Terminal />
+          <div className="hero-coorg">
+            <span className="coorg-label">co-organizado por</span>
+            <a
+              href="https://um.edu.uy"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Universidad de Montevideo"
+            >
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/sponsors/um.svg"
+                alt="Universidad de Montevideo"
+                loading="lazy"
+              />
+            </a>
+          </div>
         </div>
       </div>
     </header>

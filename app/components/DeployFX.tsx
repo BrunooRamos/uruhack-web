@@ -77,7 +77,7 @@ export function DeployFX() {
             <i />
             <i />
           </span>
-          <span className="win-title">deploy · build101.org</span>
+          <span className="win-title">deploy · build101.dev</span>
           <span className="win-tag">CI</span>
         </div>
         <div className="deploy-body">

@@ -12,6 +12,7 @@ import { KonamiMatrix } from "./components/KonamiMatrix";
 import { DeployFX, InscribiteBtn } from "./components/DeployFX";
 import { FakeCrash } from "./components/FakeCrash";
 import { StructuredData } from "./components/StructuredData";
+import { ThemeToggle } from "./components/ThemeToggle";
 import {
   VENUE,
   VENUE_ADDRESS,
@@ -21,31 +22,18 @@ import {
   CONTACT_EMAIL,
 } from "./event";
 
+// Cronograma detallado a publicar — por ahora, solo los horarios confirmados
+// de la sede (no se pernocta: cierra de noche).
 const AGENDA = [
   {
-    d: "sáb · 8h",
-    t: "acreditación & kickoff",
-    s: "llegada, café y presentación de la consigna, la sede y los sponsors.",
+    d: "sáb 17 · 08:00 → 22:00",
+    t: "kickoff & build",
+    s: "acreditación, consigna y build durante todo el día. la sede cierra a las 22:00.",
   },
   {
-    d: "sáb · 12h",
-    t: "arranca el build",
-    s: "equipos a fondo: definición de scope y primeras líneas. mentoría 1:1 disponible.",
-  },
-  {
-    d: "sáb · noche",
-    t: "build a fondo",
-    s: "las horas pesadas, con comidas y café. mentores rotando por los equipos.",
-  },
-  {
-    d: "dom · mañana",
-    t: "último sprint",
-    s: "las últimas horas: cerrar features, arreglar bugs y dejar la demo pronta.",
-  },
-  {
-    d: "dom · 18h",
-    t: "demos & premiación",
-    s: "cada equipo muestra su producto funcionando. jurado, premios y cierre.",
+    d: "dom 18 · 08:00 → 20:00",
+    t: "último sprint, demos & premiación",
+    s: "se retoma el build a la mañana. demos en vivo, jurado, premios y cierre.",
   },
 ];
 
@@ -70,6 +58,7 @@ export default function Home() {
               <a href="#build">// programa</a>
               <a href="#faq">// faq</a>
             </div>
+            <ThemeToggle />
             <InscribiteBtn className="btn">aplicar →</InscribiteBtn>
           </div>
         </div>
@@ -97,11 +86,11 @@ export default function Home() {
               <div className="eyebrow">
                 <span className="slash">//</span> programa &amp; lugar
               </div>
-              <h2>dos días, hora por hora.</h2>
+              <h2>dos días a fondo.</h2>
               <p className="lead">
-                36 horas con estructura, no improvisación.{" "}
+                sábado y domingo de build en la sede.{" "}
                 <span className="comment">
-                  // cronograma preliminar, se confirma antes del evento.
+                  // cronograma detallado a publicar antes del evento.
                 </span>
               </p>
             </div>
@@ -126,7 +115,7 @@ export default function Home() {
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
                     src="/fium-fachada.webp"
-                    alt="fachada de la facultad de ingeniería (fium), universidad de montevideo, en el parque tecnológico del latu"
+                    alt="fachada de la facultad de ingeniería de la universidad de montevideo, en el parque tecnológico del latu"
                     width={1920}
                     height={768}
                     loading="lazy"
@@ -134,7 +123,7 @@ export default function Home() {
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
                     src="/fium-campus.webp"
-                    alt="edificio del campus de la universidad de montevideo (fium)"
+                    alt="edificio del campus de la universidad de montevideo, facultad de ingeniería"
                     width={1200}
                     height={677}
                     loading="lazy"
@@ -173,7 +162,7 @@ export default function Home() {
             </div>
             <h2>buscamos builders.</h2>
             <p className="lead">
-              la inscripción es individual y gratuita, con cupos limitados.
+              inscribí a tu equipo de 3 a 4 — gratis y con cupos limitados.
             </p>
             <div className="apply-meta">
               <div>
@@ -184,11 +173,11 @@ export default function Home() {
               </div>
               <div>
                 <b>36 horas</b>
-                <span>// build continuo</span>
+                <span>// de cero a demo</span>
               </div>
               <div>
-                <b>fium</b>
-                <span>// montevideo</span>
+                <b>universidad de montevideo</b>
+                <span>// latu</span>
               </div>
             </div>
           </Reveal>
@@ -224,6 +213,22 @@ export default function Home() {
                   {VENUE} · {VENUE_ADDRESS}
                 </a>
               </p>
+              <div className="foot-coorg">
+                <span className="foot-coorg-label">co-organizado por</span>
+                <a
+                  href="https://um.edu.uy"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Universidad de Montevideo"
+                >
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src="/sponsors/um.svg"
+                    alt="Universidad de Montevideo"
+                    loading="lazy"
+                  />
+                </a>
+              </div>
             </div>
             <div className="foot-links">
               <div className="foot-col">

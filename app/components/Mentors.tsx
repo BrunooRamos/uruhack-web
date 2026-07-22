@@ -13,9 +13,9 @@ type Person = {
 // Mientras no estén confirmados, el nombre no se renderiza como texto
 // (evita indexar "Por anunciar" repetido en buscadores).
 const PEOPLE: Person[] = [
-  { name: "", role: "mentor · ingeniería", org: "—", confirmed: false },
-  { name: "", role: "mentor · producto", org: "—", confirmed: false },
-  { name: "", role: "mentor · diseño", org: "—", confirmed: false },
+  { name: "", role: "mentor", org: "—", confirmed: false },
+  { name: "", role: "mentor", org: "—", confirmed: false },
+  { name: "", role: "mentor", org: "—", confirmed: false },
   { name: "", role: "jurado", org: "—", confirmed: false },
   { name: "", role: "jurado", org: "—", confirmed: false },
   { name: "", role: "jurado", org: "—", confirmed: false },

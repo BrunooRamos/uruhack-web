@@ -15,7 +15,7 @@ type Line =
 
 const SCRIPT: Line[] = [
   { k: "cmd", text: "npx create-hackathon@latest build-101" },
-  { k: "task", text: "reservando sede: universidad de montevideo — fium" },
+  { k: "task", text: "reservando sede: universidad de montevideo — latu" },
   { k: "task", text: "convocando builders, diseño y producto" },
   { k: "task", text: "configurando mentores, sponsors y tracks" },
   { k: "blank" },
@@ -56,7 +56,7 @@ function StaticLine({ line }: { line: Line }) {
     case "quote":
       return (
         <div>
-          <span className="accent">&quot;</span>b2c o b2b, lo que quieras
+          <span className="accent">&quot;</span>zero to product
           <span className="spark">.</span>{" "}
           <span className="accent">se evalúa funcionando, no en slides</span>
           <span className="accent">&quot;</span>
@@ -114,7 +114,8 @@ function runCommand(raw: string): {
     return {
       out: O(
         <div className="out">
-          convertí una idea en un producto real y usable, en 36h. b2c o b2b.{" "}
+          consigna.md: <span className="accent">locked</span> — se revela en el
+          kickoff. lo único seguro:{" "}
           <span className="accent">se evalúa funcionando, no en slides.</span>
         </div>,
       ),
@@ -124,7 +125,7 @@ function runCommand(raw: string): {
       out: [
         <div className="out" key="1">1. se construye durante el evento.</div>,
         <div className="out" key="2">2. demo en vivo, sin excepciones.</div>,
-        <div className="out" key="3">3. equipos de 3 a 5 personas.</div>,
+        <div className="out" key="3">3. equipos de 3 a 4 personas.</div>,
       ],
     };
   if (lower.startsWith("cat"))
@@ -142,8 +143,8 @@ function runCommand(raw: string): {
     return {
       out: O(
         <div className="out">
-          <span className="accent">general</span> — compiten todos los equipos
-          por el premio principal. tracks por sponsor: se anuncian pronto.
+          <span className="accent">zero to product</span> — compiten todos los
+          equipos por el premio principal. tracks por sponsor: se anuncian pronto.
         </div>,
       ),
     };

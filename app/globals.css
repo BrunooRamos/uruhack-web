@@ -4,7 +4,9 @@
    <build 101> design system
    ============================================================ */
 :root {
-  /* build 101 — monochrome, intentional. no accents, no gradients. */
+  /* build 101 — monochrome + un solo acento: electric blue (#2563EB).
+     tema claro por defecto; el tema oscuro solo redefine estos tokens
+     (ver [data-theme="dark"] abajo). nada fuera de los tokens cambia por tema. */
   --fg: #000000;         /* text, wordmark, headings */
   --fg-body: #171717;    /* body text */
   --muted: #404040;      /* secondary text, comments, labels */
@@ -16,7 +18,19 @@
   --line-2: #d4d4d4;     /* stronger border */
   --faint: #a3a3a3;      /* faint text — captions, "coming soon", dim-on-dark */
 
-  /* inverted surfaces — terminal, countdown, deploy card */
+  /* electric blue — único acento (design sheet: ELECTRIC BLUE #2563EB) */
+  --accent: #2563eb;
+  --accent-strong: #1d4ed8; /* hover del acento */
+
+  /* washes/velos que dependen del tema */
+  --wash: rgba(0, 0, 0, 0.08);          /* hover suave, fondos activos */
+  --grid-line: rgba(0, 0, 0, 0.05);     /* grilla del live-hero */
+  --nav-bg: rgba(255, 255, 255, 0.85);  /* topnav con blur */
+  --foot-bg: rgba(255, 255, 255, 0.5);  /* footer */
+  --logo-invert: 0;                     /* logos rasterizados oscuros (UM) → 1 en dark */
+
+  /* inverted surfaces — terminal, countdown, deploy card.
+     constantes en ambos temas: son momentos invertidos, no "modo oscuro". */
   --panel: #000000;
   --panel-2: #171717;
   --panel-line: #262626;
@@ -24,24 +38,74 @@
   --panel-dim: #737373;
   --panel-dim-2: #a3a3a3;
 
-  /* legacy accent aliases → mono. these names are removed in phase 2 once every
-     usage is migrated to the semantic tokens above; kept now so no ref dangles. */
-  --blue: #000000;
-  --blue-soft: #171717;
+  /* legacy aliases. los que eran "acento" en el diseño original apuntan al azul;
+     el resto sigue a los tokens semánticos. se eliminan en fase 2. */
+  --blue: var(--accent);
+  --blue-soft: var(--accent-strong);
   --blue-glow: transparent;
-  --navy: #000000;
-  --navy-2: #171717;
-  --navy-3: #262626;
-  --ink: #171717;
+  --navy: var(--fg);
+  --navy-2: var(--fg-body);
+  --navy-3: var(--panel-line);
+  --ink: var(--fg-body);
   --muted-2: #737373;
-  --spark: #000000;
-  --green: #000000;
-  --red: #404040;
+  --spark: var(--accent);
+  --green: var(--accent);
+  --red: var(--muted);
 
   /* one typeface only — geist mono. hierarchy from size/weight/spacing, never typeface. */
   --font-mono-stack: var(--font-mono), ui-monospace, SFMono-Regular, Menlo, monospace;
   --font-sans-stack: var(--font-mono-stack);
   --font-display-stack: var(--font-mono-stack);
+}
+
+/* tema oscuro — mismos tokens, valores invertidos. mantené este bloque
+   idéntico al de @media (prefers-color-scheme) de abajo. */
+[data-theme="dark"] {
+  --fg: #ffffff;
+  --fg-body: #e5e5e5;
+  --muted: #a3a3a3;
+  --bg: #0a0a0a;
+  --paper: #111111;
+  --surface-1: #141414;
+  --surface-2: #1a1a1a;
+  --line: #262626;
+  --line-2: #404040;
+  --faint: #737373;
+  --accent: #3b82f6;        /* un paso más claro: contraste sobre negro */
+  --accent-strong: #60a5fa;
+  --wash: rgba(255, 255, 255, 0.1);
+  --grid-line: rgba(255, 255, 255, 0.06);
+  --nav-bg: rgba(10, 10, 10, 0.85);
+  --foot-bg: rgba(10, 10, 10, 0.5);
+  --logo-invert: 1;
+  --muted-2: #8a8a8a;
+  color-scheme: dark;
+}
+
+/* sin JS: respetar el sistema. con JS, el script inline siempre setea
+   data-theme antes del primer paint, así que este bloque no aplica. */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme]) {
+    --fg: #ffffff;
+    --fg-body: #e5e5e5;
+    --muted: #a3a3a3;
+    --bg: #0a0a0a;
+    --paper: #111111;
+    --surface-1: #141414;
+    --surface-2: #1a1a1a;
+    --line: #262626;
+    --line-2: #404040;
+    --faint: #737373;
+    --accent: #3b82f6;
+    --accent-strong: #60a5fa;
+    --wash: rgba(255, 255, 255, 0.1);
+    --grid-line: rgba(255, 255, 255, 0.06);
+    --nav-bg: rgba(10, 10, 10, 0.85);
+    --foot-bg: rgba(10, 10, 10, 0.5);
+    --logo-invert: 1;
+    --muted-2: #8a8a8a;
+    color-scheme: dark;
+  }
 }
 
 * {
@@ -73,14 +137,10 @@ a {
   text-decoration: none;
 }
 
-/* keyboard focus — mono outline, inverts on dark surfaces */
+/* keyboard focus — acento azul, legible sobre claro y oscuro */
 :focus-visible {
-  outline: 2px solid #000;
+  outline: 2px solid var(--accent);
   outline-offset: 2px;
-}
-#live :focus-visible,
-.closing-band :focus-visible {
-  outline-color: #fff;
 }
 
 @media (min-width: 1024px) {
@@ -162,9 +222,9 @@ h2 {
   font-family: var(--font-mono-stack);
   font-size: 13px;
   font-weight: 500;
-  border: 1px solid #000;
-  background: #000;
-  color: #fff;
+  border: 1px solid var(--accent);
+  background: var(--accent);
+  color: #ffffff;
   padding: 10px 17px;
   border-radius: 8px;
   cursor: pointer;
@@ -174,19 +234,19 @@ h2 {
     border-color 0.15s ease;
 }
 .btn:hover {
-  background: #171717;
-  border-color: #171717;
+  background: var(--accent-strong);
+  border-color: var(--accent-strong);
   transform: translateY(-1px);
 }
 .btn-ghost {
   background: transparent;
-  color: #000;
-  border: 1px solid #000;
+  color: var(--fg);
+  border: 1px solid var(--fg);
 }
 .btn-ghost:hover {
-  background: #f5f5f5;
-  border-color: #000;
-  color: #000;
+  background: var(--wash);
+  border-color: var(--fg);
+  color: var(--fg);
   transform: translateY(-1px);
 }
 
@@ -212,8 +272,8 @@ h2 {
   overflow: hidden;
 }
 .win.dark {
-  background: var(--navy);
-  border-color: var(--navy-3);
+  background: var(--panel);
+  border-color: var(--panel-line);
   box-shadow: none;
 }
 .win-bar {
@@ -222,11 +282,11 @@ h2 {
   gap: 10px;
   padding: 11px 14px;
   border-bottom: 1px solid var(--line);
-  background: #fafafa;
+  background: var(--surface-1);
 }
 .win.dark .win-bar {
-  background: var(--navy-2);
-  border-color: var(--navy-3);
+  background: var(--panel-2);
+  border-color: var(--panel-line);
 }
 .dots {
   display: flex;
@@ -268,7 +328,7 @@ h2 {
   padding: 2px 8px;
 }
 .win.dark .win-tag {
-  border-color: var(--navy-3);
+  border-color: var(--panel-line);
   color: #737373;
 }
 .win-body {
@@ -430,7 +490,7 @@ section {
   color: var(--ink);
 }
 .tree-side .f.active {
-  background: rgba(0, 0, 0, 0.08);
+  background: var(--wash);
   color: var(--blue);
 }
 .tree-side .indent {
@@ -562,7 +622,7 @@ section {
   align-items: center;
   gap: 12px;
   padding: 9px 0;
-  border-bottom: 1px solid var(--navy-3);
+  border-bottom: 1px solid var(--panel-line);
 }
 .ci .check:last-child {
   border-bottom: none;
@@ -583,7 +643,7 @@ section {
   width: 19px;
   height: 19px;
   border-radius: 8px;
-  border: 2px solid var(--navy-3);
+  border: 2px solid var(--panel-line);
   border-top-color: var(--spark);
   flex-shrink: 0;
   animation: spin 0.7s linear infinite;
@@ -604,7 +664,7 @@ section {
 .ci-foot {
   margin-top: 14px;
   padding-top: 14px;
-  border-top: 1px solid var(--navy-3);
+  border-top: 1px solid var(--panel-line);
   color: var(--green);
   display: flex;
   align-items: center;
@@ -614,7 +674,7 @@ section {
 .browser-url {
   flex: 1;
   margin-left: 6px;
-  background: #fff;
+  background: var(--paper);
   border: 1px solid var(--line);
   border-radius: 8px;
   font-family: var(--font-mono-stack);
@@ -634,8 +694,8 @@ section {
 .live-hero {
   padding: 38px 32px 30px;
   background-image:
-    linear-gradient(rgba(0, 0, 0, 0.05) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(0, 0, 0, 0.05) 1px, transparent 1px);
+    linear-gradient(var(--grid-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
   background-size: 24px 24px;
   border-bottom: 1px solid var(--line);
 }
@@ -663,7 +723,7 @@ section {
   border: 1px solid var(--line-2);
   border-radius: 8px;
   padding: 10px 14px;
-  background: #fff;
+  background: var(--paper);
 }
 .date-card .d {
   font-family: var(--font-display-stack);
@@ -699,7 +759,7 @@ section {
   border: 1px solid var(--line-2);
   border-radius: 8px;
   padding: 11px 13px;
-  background: #fff;
+  background: var(--paper);
   outline: none;
   transition: border 0.15s ease;
 }
@@ -798,7 +858,7 @@ section {
 footer {
   border-top: 1px solid var(--line);
   padding: 56px 0 40px;
-  background: rgba(255, 255, 255, 0.5);
+  background: var(--foot-bg);
 }
 .foot-grid {
   display: flex;
@@ -819,6 +879,23 @@ footer .logo {
      enforce brand lowercase at display only. */
   text-transform: lowercase;
   max-width: 36ch;
+}
+.foot-coorg {
+  margin-top: 22px;
+}
+.foot-coorg-label {
+  display: block;
+  font-family: var(--font-mono-stack);
+  font-size: 12px;
+  color: var(--muted-2);
+  margin-bottom: 10px;
+}
+.foot-coorg img {
+  height: 38px;
+  width: auto;
+  display: block;
+  /* logo UM en gris oscuro — en dark se invierte a claro */
+  filter: invert(var(--logo-invert));
 }
 .foot-links {
   display: flex;
@@ -861,7 +938,7 @@ nav.topnav {
   z-index: 50;
   -webkit-backdrop-filter: blur(8px);
   backdrop-filter: blur(8px);
-  background: rgba(255, 255, 255, 0.85);
+  background: var(--nav-bg);
   border-bottom: 1px solid var(--line);
 }
 nav.topnav .wrap {
@@ -897,13 +974,42 @@ nav.topnav .logo {
   }
 }
 
+/* theme toggle — chip mono en el nav */
+.theme-toggle {
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  border: 1px solid var(--line-2);
+  border-radius: 8px;
+  background: transparent;
+  color: var(--muted);
+  cursor: pointer;
+  transition: color 0.12s ease, border-color 0.12s ease, background 0.12s ease;
+}
+.theme-toggle:hover {
+  color: var(--fg);
+  border-color: var(--fg);
+  background: var(--wash);
+}
+/* ícono según tema — resuelto en CSS para no depender de estado en JS */
+.theme-toggle .tt-sun {
+  display: none;
+}
+[data-theme="dark"] .theme-toggle .tt-sun {
+  display: block;
+}
+[data-theme="dark"] .theme-toggle .tt-moon {
+  display: none;
+}
+
 .scroll-bar {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   height: 3px;
-  background: #000;
+  background: var(--accent);
   z-index: 100;
   transform-origin: 0 50%;
   transform: scaleX(0);
@@ -1058,7 +1164,7 @@ nav.topnav .logo {
 .cursor-ring.big {
   width: 46px;
   height: 46px;
-  background: rgba(0, 0, 0, 0.1);
+  background: var(--wash);
 }
 
 /* ---- CI tick pop ---- */
@@ -1085,7 +1191,7 @@ nav.topnav .logo {
   width: 56px;
   height: 3px;
   border-radius: 8px;
-  background: #000;
+  background: var(--fg);
 }
 
 /* ============================================================
@@ -1193,9 +1299,9 @@ nav.topnav .logo {
   font-family: var(--font-mono-stack);
   font-size: 14.5px;
   font-variant-numeric: tabular-nums;
-  background: var(--navy);
+  background: var(--panel);
   color: #e5e5e5;
-  border: 1px solid var(--navy-3);
+  border: 1px solid var(--panel-line);
   border-radius: 8px;
   padding: 11px 18px;
   box-shadow: none;
@@ -1259,7 +1365,7 @@ nav.topnav .logo {
   display: block;
   height: 100%;
   border-radius: 8px;
-  background: #000;
+  background: var(--fg);
   box-shadow: none;
   transition: width 0.2s ease;
 }
@@ -1372,17 +1478,17 @@ nav.topnav .logo {
   height: 4px;
 }
 .prize-card.gold {
-  border-color: #000;
+  border-color: var(--fg);
   box-shadow: none;
 }
 .prize-card.gold::before {
-  background: #000;
+  background: var(--accent);
 }
 .prize-card.silver::before {
-  background: #404040;
+  background: var(--muted);
 }
 .prize-card.bronze::before {
-  background: #a3a3a3;
+  background: var(--faint);
 }
 .pz-top {
   display: flex;
@@ -1521,7 +1627,7 @@ nav.topnav .logo {
   font-family: var(--font-mono-stack);
   font-size: 14px;
   color: #e5e5e5;
-  background: var(--navy);
+  background: var(--panel);
   border: 1px solid #404040;
   border-radius: 8px;
   padding: 12px 20px;
@@ -1591,8 +1697,8 @@ body.has-cursor .repl-input {
 .deploy-card {
   /* 100% (not 92vw) so the overlay's own 24px padding forms symmetric gutters */
   width: min(420px, 100%);
-  background: var(--navy);
-  border: 1px solid var(--navy-3);
+  background: var(--panel);
+  border: 1px solid var(--panel-line);
   border-radius: 8px;
   overflow: hidden;
   box-shadow: none;
@@ -1616,8 +1722,8 @@ body.has-cursor .repl-input {
   align-items: center;
   gap: 10px;
   padding: 11px 14px;
-  background: var(--navy-2);
-  border-bottom: 1px solid var(--navy-3);
+  background: var(--panel-2);
+  border-bottom: 1px solid var(--panel-line);
 }
 .deploy-body {
   padding: 18px 20px;
@@ -1651,7 +1757,7 @@ body.has-cursor .repl-input {
 .deploy-live {
   margin-top: 6px;
   padding-top: 12px;
-  border-top: 1px solid var(--navy-3);
+  border-top: 1px solid var(--panel-line);
   color: #737373;
   display: flex;
   align-items: center;
@@ -1840,9 +1946,9 @@ body.has-cursor .repl-input {
   max-width: 620px;
   margin: 0 auto;
   text-align: center;
-  border: 1px solid #000;
+  border: 1px solid var(--fg);
   border-radius: 8px;
-  background: #ffffff;
+  background: var(--paper);
   padding: 40px 36px;
   box-shadow: none;
 }
@@ -2008,7 +2114,7 @@ body.has-cursor .repl-input {
   }
 }
 .mentor-card {
-  background: #ffffff;
+  background: var(--paper);
   border: 1px solid var(--line);
   border-radius: 8px;
   padding: 22px;
@@ -2106,7 +2212,7 @@ body.has-cursor .repl-input {
 .faq-item {
   border: 1px solid var(--line);
   border-radius: 8px;
-  background: #ffffff;
+  background: var(--paper);
   overflow: hidden;
   transition: border-color 0.12s ease, background 0.12s ease;
 }
@@ -2312,7 +2418,7 @@ a.sponsor-main:hover {
   font-family: var(--font-display-stack);
   font-size: 16px;
   font-weight: 600;
-  color: var(--navy);
+  color: var(--accent);
   font-variant-numeric: tabular-nums;
 }
 .meta-sep {
@@ -2321,6 +2427,37 @@ a.sponsor-main:hover {
   background: var(--line-2);
   display: inline-block;
 }
+
+/* co-organizado por UM — debajo de la terminal, centrado */
+.hero-coorg {
+  margin-top: 28px;
+  text-align: center;
+}
+.coorg-label {
+  display: block;
+  font-family: var(--font-mono-stack);
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  color: var(--muted-2);
+  margin-bottom: 14px;
+}
+.hero-coorg a {
+  display: inline-block;
+}
+.hero-coorg img {
+  height: 84px;
+  width: auto;
+  display: block;
+  margin: 0 auto;
+  /* logo UM en gris oscuro — en dark se invierte a claro */
+  filter: invert(var(--logo-invert));
+}
+/* "zero to product" — el término de marca del h1, en el acento */
+.h1-accent {
+  font-style: normal;
+  color: var(--accent);
+}
+
 .hero-kicker {
   display: block;
   font-family: var(--font-mono-stack);
@@ -2383,9 +2520,10 @@ a.sponsor-main:hover {
   position: relative;
   z-index: 1;
   display: grid;
-  grid-template-columns: 1.05fr 0.95fr;
+  /* copy más ancha, terminal más chica y arriba (alineada al kicker) */
+  grid-template-columns: 1.18fr 0.82fr;
   gap: 44px;
-  align-items: center;
+  align-items: start;
 }
 @media (max-width: 900px) {
   .hero-main {
@@ -2409,6 +2547,15 @@ a.sponsor-main:hover {
 .hero-term {
   position: relative;
   z-index: 1;
+}
+/* terminal más compacta dentro del hero */
+.hero-term .win-body {
+  font-size: 12.5px;
+  line-height: 1.8;
+  padding: 16px 18px;
+}
+.hero-term .win-bar {
+  padding: 9px 12px;
 }
 
 /* ---- generic 2-col split (heading | body) ---- */
@@ -2608,7 +2755,7 @@ a.sponsor-main:hover {
 }
 .apply-meta b {
   font-family: var(--font-display-stack);
-  color: var(--navy);
+  color: var(--accent);
   font-size: 18px;
   font-variant-numeric: tabular-nums;
 }
@@ -2640,9 +2787,6 @@ a.sponsor-main:hover {
 #live .eyebrow .slash {
   color: #737373;
 }
-#live .apply-meta b {
-  color: #ffffff;
-}
 #live .apply-meta span {
   color: #737373;
 }
@@ -2656,16 +2800,7 @@ a.sponsor-main:hover {
   background: #171717;
   border-color: #262626;
 }
-/* primary button inverts to read on black */
-#live .btn {
-  background: #ffffff;
-  color: #000;
-  border-color: #ffffff;
-}
-#live .btn:hover {
-  background: #e5e5e5;
-  border-color: #e5e5e5;
-}
+/* primary button: el azul del acento lee bien sobre negro — sin override */
 #live .apply-cta .note {
   color: #a3a3a3;
 }
