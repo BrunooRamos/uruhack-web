@@ -10,8 +10,8 @@ type Sponsor = {
   url?: string;
 };
 
-// Sponsors principales — fila estática, a todo color, arriba.
-const MAIN_SPONSORS: Sponsor[] = [
+// Instituciones que apoyan el evento.
+const SUPPORTERS: Sponsor[] = [
   {
     name: "Freedom 250",
     logo: "/sponsors/freedom250.png",
@@ -54,10 +54,10 @@ export function Sponsors() {
     <section id="sponsors" className="sponsors-band">
       <div className="wrap">
         <Reveal>
-          {/* Sponsors principales — fila estática */}
-          <div className="sponsor-tier-label">// main sponsor</div>
+          {/* Instituciones que apoyan */}
+          <div className="sponsor-tier-label">// apoyan</div>
           <div className="sponsor-main-row">
-            {MAIN_SPONSORS.map((s) => (
+            {SUPPORTERS.map((s) => (
               <SponsorLogo key={s.name} s={s} className="sponsor-main" />
             ))}
           </div>

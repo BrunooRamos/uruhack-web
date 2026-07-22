@@ -11,7 +11,7 @@ export const contentType = "image/png";
 
 const BG = "#000000";
 const WHITE = "#ffffff";
-const GRAY = "#a3a3a3";
+const BLUE = "#2563eb"; /* electric blue — acento de marca */
 
 async function font(file: string) {
   return readFile(join(process.cwd(), "assets/fonts", file));
@@ -44,7 +44,7 @@ export default async function Image() {
             display: "flex",
             fontSize: 26,
             fontWeight: 400,
-            color: GRAY,
+            color: BLUE,
           }}
         >
           batch 001 — montevideo
@@ -86,7 +86,7 @@ export default async function Image() {
           </div>
           <div style={{ display: "flex", fontSize: 30, fontWeight: 500 }}>
             <span style={{ color: WHITE }}>aplicar&nbsp;</span>
-            <span style={{ color: GRAY }}>→</span>
+            <span style={{ color: BLUE }}>→</span>
           </div>
         </div>
       </div>

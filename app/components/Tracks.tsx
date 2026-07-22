@@ -16,8 +16,8 @@ export function Tracks() {
             <h2 style={{ margin: "0 auto" }}>un track principal, y tracks por sponsor.</h2>
             <p className="lead" style={{ margin: "16px auto 0" }}>
               todos los equipos compiten en el track{" "}
-              <span className="bracket">general</span>. si querés, sumás tu
-              proyecto a un track por sponsor y competís por un premio extra.
+              <span className="bracket">zero to product</span>. si querés, sumás
+              tu proyecto a un track por sponsor y competís por un premio extra.
             </p>
           </div>
         </Reveal>
@@ -27,10 +27,10 @@ export function Tracks() {
             <div className="tg-badge">
               <Star size={14} strokeWidth={1.5} aria-hidden /> track principal
             </div>
-            <h3>general</h3>
+            <h3>zero to product</h3>
             <p>
-              cualquier vertical, b2c o b2b. acá compiten todos los equipos — la
-              mejor ejecución se lleva el premio principal.
+              acá compiten todos los equipos — la mejor ejecución se lleva el
+              premio principal. la consigna se revela en el kickoff.
             </p>
           </div>
         </Reveal>

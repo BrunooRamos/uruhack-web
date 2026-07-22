@@ -19,12 +19,12 @@ export const FAQS: FaqItem[] = [
   {
     q: "¿qué es build 101?",
     aText:
-      "un hackathon de 36 horas donde equipos construyen un producto real y funcional en un solo fin de semana. 17 y 18 de octubre de 2026 en montevideo.",
+      "una hackathon de 36 horas donde equipos construyen un producto real y funcional en un solo fin de semana. 17 y 18 de octubre de 2026 en montevideo.",
   },
   {
     q: "¿quién puede participar?",
     aText:
-      "jóvenes builders de uruguay: estudiantes y jóvenes profesionales de desarrollo, diseño y producto. no necesitás haber participado antes en un hackathon.",
+      "jóvenes builders de uruguay: estudiantes y jóvenes profesionales de desarrollo, diseño y producto. no necesitás haber participado antes en una hackathon.",
   },
   {
     q: "¿cuánto cuesta?",
@@ -49,7 +49,7 @@ export const FAQS: FaqItem[] = [
   {
     q: "¿necesito tener un equipo para aplicar?",
     aText:
-      "no. la inscripción es individual. si ya tenés equipo, pueden aplicar y sumarse juntos; si no, te ayudamos a formar uno. se compite en equipos de 3 a 5 personas.",
+      "sí: la inscripción es por equipos de 3 a 4 personas. si todavía no tenés equipo, escribinos y te ayudamos a formar uno.",
   },
   {
     q: "¿necesito saber programar?",
@@ -59,12 +59,12 @@ export const FAQS: FaqItem[] = [
   {
     q: "¿qué puedo construir?",
     aText:
-      "cualquier producto, b2c o b2b. la consigna detallada se revela al inicio del hackathon, para que nadie llegue con ventaja.",
+      "la consigna se revela en el kickoff, para que nadie llegue con ventaja. podés llegar con ideas, pero el producto se define y se construye ahí.",
   },
   {
     q: "¿cómo funcionan los tracks?",
     aText:
-      "todos los equipos compiten en el track general por el premio principal. si querés, podés inscribir tu proyecto además en un track por sponsor y competir por ese premio extra: siempre presentás en general y, opcionalmente, en un track más.",
+      "todos los equipos compiten en el track principal, zero to product, por el premio principal. si querés, podés inscribir tu proyecto además en un track por sponsor y competir por ese premio extra: siempre presentás en el principal y, opcionalmente, en un track más.",
   },
   {
     q: "¿puedo empezar a trabajar antes del evento?",
@@ -84,7 +84,7 @@ export const FAQS: FaqItem[] = [
   {
     q: "¿hay comida? ¿se descansa en la sede?",
     aText:
-      "sí, hay comidas y café durante todo el evento. al ser 36 horas continuas, habrá espacios para descansar. el cronograma detallado se comparte antes del evento.",
+      "todas las comidas están cubiertas, con café durante todo el evento. en la sede no se duerme: abre el sábado de 08:00 a 22:00 y el domingo de 08:00 a 20:00. el cronograma detallado se publica antes del evento.",
   },
   {
     q: "¿dónde es?",
