@@ -2,7 +2,7 @@ import { ImageResponse } from "next/og";
 import { readFile } from "node:fs/promises";
 import { join } from "node:path";
 
-// Favicon generado en build: glyph "b_" — b blanca + cursor block en electric
+// Favicon generado en build: glyph "b_" — b blanca + underscore en electric
 // blue (#2563EB, el acento de marca) sobre negro.
 export const size = { width: 512, height: 512 };
 export const contentType = "image/png";
@@ -35,9 +35,10 @@ export default async function Icon() {
           style={{
             display: "flex",
             width: 118,
-            height: 200,
+            height: 36,
             background: "#2563eb",
             marginLeft: 16,
+            marginBottom: 4,
           }}
         />
       </div>
