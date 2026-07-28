@@ -11,12 +11,7 @@ type Sponsor = {
 };
 
 // Instituciones que apoyan el evento.
-const SUPPORTERS: Sponsor[] = [
-  {
-    name: "Freedom 250",
-    logo: "/sponsors/freedom250.png",
-  },
-];
+const SUPPORTERS: Sponsor[] = [];
 
 // El resto de los sponsors — carrusel debajo. Agregá acá y el marquee
 // aparece solo. Dejá logo vacío para mostrar el nombre en texto.
@@ -57,9 +52,13 @@ export function Sponsors() {
           {/* Instituciones que apoyan */}
           <div className="sponsor-tier-label">// apoyan</div>
           <div className="sponsor-main-row">
-            {SUPPORTERS.map((s) => (
-              <SponsorLogo key={s.name} s={s} className="sponsor-main" />
-            ))}
+            {SUPPORTERS.length > 0 ? (
+              SUPPORTERS.map((s) => (
+                <SponsorLogo key={s.name} s={s} className="sponsor-main" />
+              ))
+            ) : (
+              <p className="sponsor-tba">se anunciarán pronto</p>
+            )}
           </div>
 
           {/* El resto — carrusel */}

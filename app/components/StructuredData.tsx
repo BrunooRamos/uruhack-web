@@ -114,12 +114,6 @@ const structuredData = {
           url: "https://um.edu.uy",
         },
       ],
-      sponsor: [
-        {
-          "@type": "Organization",
-          name: "Freedom 250",
-        },
-      ],
       offers: {
         "@type": "Offer",
         url: LUMA_URL,

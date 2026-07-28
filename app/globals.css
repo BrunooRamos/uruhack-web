@@ -2343,6 +2343,13 @@ a.sponsor-main:hover {
     height: 72px;
   }
 }
+/* placeholder cuando todavía no hay sponsors anunciados */
+.sponsor-tba {
+  margin: 0;
+  font-family: var(--font-mono-stack);
+  font-size: 15px;
+  color: var(--muted-2);
+}
 
 /* ---- rest of sponsors: marquee carousel (reuses .sp-marquee/.sp-track/.sp-logo) ---- */
 .sponsor-carousel {
