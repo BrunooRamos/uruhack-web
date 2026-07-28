@@ -35,9 +35,10 @@ export default async function AppleIcon() {
           style={{
             display: "flex",
             width: 41,
-            height: 70,
+            height: 13,
             background: "#2563eb",
             marginLeft: 6,
+            marginBottom: 1,
           }}
         />
       </div>
