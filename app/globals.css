@@ -950,6 +950,36 @@ nav.topnav .wrap {
 nav.topnav .logo {
   font-size: 22px;
 }
+/* lockup "build 101 × UM" — el wordmark con el co-organizador al lado. La ×
+   y el logo se alinean al eje del wordmark, no a su baseline. */
+.logo-lockup {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+}
+.logo-x {
+  font-family: var(--font-mono-stack);
+  font-size: 15px;
+  font-weight: 400;
+  color: var(--muted-2);
+  line-height: 1;
+}
+.logo-um {
+  height: 24px;
+  width: auto;
+  display: block;
+  /* logo UM en gris oscuro — en dark se invierte a claro (mismo token que el hero) */
+  filter: invert(var(--logo-invert));
+}
+/* en pantallas chicas el nav ya es wordmark + toggle + cta: el co-branding no
+   entra sin empujar el botón "aplicar" a dos líneas. El logo UM sigue visible
+   en el hero, arriba del fold. */
+@media (max-width: 560px) {
+  .logo-x,
+  .logo-um {
+    display: none;
+  }
+}
 .nav-links {
   display: flex;
   gap: 28px;

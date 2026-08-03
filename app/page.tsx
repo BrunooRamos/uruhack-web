@@ -50,7 +50,7 @@ export default function Home() {
       <nav className="topnav">
         <div className="wrap">
           <a href="#top">
-            <Logo />
+            <Logo coBrand />
           </a>
           <div className="nav-links">
             <div className="nav-secondary">
