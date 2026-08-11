@@ -27,6 +27,11 @@ export const FAQS: FaqItem[] = [
       "jóvenes builders de uruguay: estudiantes y jóvenes profesionales de desarrollo, diseño y producto. no necesitás haber participado antes en una hackathon.",
   },
   {
+    q: "¿de qué parte de uruguay puede ser mi equipo?",
+    aText:
+      "de cualquier parte del país: build 101 es abierta a equipos de todo uruguay. la sede es en montevideo y la hackathon es presencial, así que tu equipo tiene que poder estar acá el 17 y 18 de octubre.",
+  },
+  {
     q: "¿cuánto cuesta?",
     aText:
       "participar es gratis. los cupos son limitados y la inscripción está sujeta a selección por parte del equipo organizador.",

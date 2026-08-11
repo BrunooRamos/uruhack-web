@@ -15,18 +15,20 @@ export const LOGO_URL = `${SITE_URL}/icon`;
 
 /** Metadata principal para buscadores (~155 caracteres, sin cortes en SERP).
  *  Voz build 101: todo en minúsculas. */
+/* El título tiene que traer los dos términos que se buscan — "hackathon
+ * uruguay" y "hackathon montevideo" — más el año. Antes solo decía montevideo. */
 export const SEO_TITLE =
-  "build 101 — 36 horas, un producto, una demo | hackathon en montevideo";
+  "build 101 — la hackathon más grande de uruguay | montevideo 2026";
 export const SEO_DESCRIPTION =
-  "build 101 es una hackathon gratuita de 36 horas en montevideo: un fin de semana, un producto, una demo. inscribí a tu equipo de 3 a 4, cupos limitados.";
+  "build 101 es la hackathon más grande de uruguay: 36 horas en montevideo, un fin de semana, un producto, una demo. inscribí a tu equipo de 3 a 4 — gratis y con cupos limitados.";
 
 /** Descripción larga para datos estructurados (Event) y answer engines. */
 export const EVENT_DESCRIPTION =
-  "build 101 es una hackathon gratuita de 36 horas para jóvenes builders uruguayos. inscribí a tu equipo de 3 a 4 personas y construí un producto real y funcionando el 17 y 18 de octubre de 2026 en la universidad de montevideo - latu.";
+  "build 101 es una hackathon gratuita de 36 horas en uruguay para jóvenes builders. inscribí a tu equipo de 3 a 4 personas y construí un producto real y funcionando el 17 y 18 de octubre de 2026 en la universidad de montevideo - latu, montevideo, uruguay.";
 
 /** Última actualización de contenido del sitio (bumpeala con cada anuncio real:
  *  tracks, mentores, sponsors, cronograma). Alimenta sitemap y schema. */
-export const CONTENT_UPDATED_ISO = "2026-07-21T00:00:00-03:00";
+export const CONTENT_UPDATED_ISO = "2026-08-03T00:00:00-03:00";
 
 /** Link de inscripción en Luma (selección con aprobación del organizador). */
 export const LUMA_URL = "https://luma.com/2kxg61n8";
@@ -74,5 +76,12 @@ export const APPLY_DEADLINE = "27 de septiembre, 23:59";
 export const DURATION_HOURS = 36;
 export const TEAM_SIZE = "3 a 4";
 
-/** Contacto. TODO(build101): confirmar que el buzón existe. */
-export const CONTACT_EMAIL = "hola@build101.dev";
+/** Mails directos del equipo organizador (se muestran en el footer). */
+export const TEAM_EMAILS = [
+  "mateo@build101.dev",
+  "ramiro@build101.dev",
+  "bruno@build101.dev",
+];
+
+/** Contacto principal: donde la UI muestra un solo mail (FAQ, CTAs, schema). */
+export const CONTACT_EMAIL = TEAM_EMAILS[0];

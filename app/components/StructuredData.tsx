@@ -46,6 +46,10 @@ const structuredData = {
         height: 512,
       },
       sameAs: SOCIAL_PROFILES,
+      areaServed: {
+        "@type": "Country",
+        name: "Uruguay",
+      },
       contactPoint: {
         "@type": "ContactPoint",
         email: CONTACT_EMAIL,
@@ -66,7 +70,7 @@ const structuredData = {
       "@type": "WebPage",
       "@id": webpageId,
       url: CANONICAL_URL,
-      name: "build 101 — hackathon de 36 horas en montevideo",
+      name: "build 101 — la hackathon más grande de uruguay, 36 horas en montevideo",
       isPartOf: { "@id": websiteId },
       about: { "@id": eventId },
       primaryImageOfPage: OG_IMAGE_URL,

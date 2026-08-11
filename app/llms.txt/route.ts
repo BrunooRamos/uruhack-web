@@ -1,10 +1,10 @@
 import {
   APPLY_DEADLINE,
   CANONICAL_URL,
-  CONTACT_EMAIL,
   EVENT_DATES_LONG,
   EVENT_DESCRIPTION,
   LUMA_URL,
+  TEAM_EMAILS,
   TEAM_SIZE,
   VENUE,
   VENUE_ADDRESS,
@@ -23,7 +23,8 @@ export function GET() {
 
 ## datos clave
 
-- qué: hackathon presencial de 36 horas: se construye un producto real y funcionando durante el evento.
+- qué: hackathon presencial de 36 horas en uruguay: se construye un producto real y funcionando durante el evento.
+- alcance: abierta a equipos de todo uruguay; la sede es en montevideo.
 - cuándo: ${EVENT_DATES_LONG}.
 - dónde: ${VENUE}, ${VENUE_ADDRESS}, uruguay.
 - precio: gratis, con cupos limitados y selección del equipo organizador.
@@ -31,7 +32,7 @@ export function GET() {
 - cierre de inscripción: ${APPLY_DEADLINE} (hora de uruguay).
 - inscripción: ${LUMA_URL}
 - sitio oficial: ${CANONICAL_URL}
-- contacto: ${CONTACT_EMAIL}
+- contacto: ${TEAM_EMAILS.join(" · ")}
 
 ## preguntas frecuentes
 
