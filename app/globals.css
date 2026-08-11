@@ -613,31 +613,42 @@ section {
   font-size: 14.5px;
 }
 
-/* la sede: filmstrip de fotos reales de FIUM. En reposo van en duotono
-   azul (grises + multiply del accent) para que la marca build 101 mande;
-   el color real aparece al hover/focus. */
-.sede-strip {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 14px;
-  margin-top: 34px;
+/* la sede: carrusel de fotos reales de FIUM (interiores y exteriores)
+   dentro de la card de lugar. En reposo van en duotono azul (grises +
+   multiply del accent) para que la marca build 101 mande; el color real
+   aparece al hover/focus. */
+.sedec-frame {
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid var(--line);
 }
-.sede-shot {
+.sedec-track {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+}
+.sedec-track::-webkit-scrollbar {
+  display: none;
+}
+.sedec-slide {
+  flex: 0 0 100%;
   margin: 0;
+  scroll-snap-align: start;
 }
 .sede-img {
   position: relative;
   overflow: hidden;
-  border: 1px solid var(--line);
 }
 .sede-img img {
   display: block;
   width: 100%;
   height: auto;
-  aspect-ratio: 4 / 3;
+  aspect-ratio: 16 / 10;
   object-fit: cover;
   filter: grayscale(1) contrast(1.05);
-  transition: filter 0.35s ease, transform 0.35s ease;
+  transition: filter 0.35s ease;
 }
 .sede-img::after {
   content: "";
@@ -649,13 +660,12 @@ section {
   transition: opacity 0.35s ease;
   pointer-events: none;
 }
-.sede-shot:hover .sede-img img,
-.sede-shot:focus-within .sede-img img {
+.sedec:hover .sede-img img,
+.sedec:focus-within .sede-img img {
   filter: none;
-  transform: scale(1.02);
 }
-.sede-shot:hover .sede-img::after,
-.sede-shot:focus-within .sede-img::after {
+.sedec:hover .sede-img::after,
+.sedec:focus-within .sede-img::after {
   opacity: 0;
 }
 @media (prefers-reduced-motion: reduce) {
@@ -663,29 +673,67 @@ section {
   .sede-img::after {
     transition: none;
   }
-  .sede-shot:hover .sede-img img {
-    transform: none;
-  }
 }
-.sede-shot figcaption {
+.sedec-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: 1px solid var(--line);
+  background: var(--bg);
+  color: var(--navy);
+  font-size: 19px;
+  line-height: 1;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  padding: 0 0 2px;
+  opacity: 0.85;
+  transition: opacity 0.12s ease;
+}
+.sedec-btn:hover {
+  opacity: 1;
+}
+.sedec-btn.prev {
+  left: 10px;
+}
+.sedec-btn.next {
+  right: 10px;
+}
+.sedec-foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 10px;
+}
+.sedec-caption {
   font-family: var(--font-mono-stack);
   font-size: 12.5px;
   color: var(--muted);
-  margin-top: 10px;
 }
-.sede-shot figcaption .slash {
+.sedec-caption .slash {
   color: var(--blue);
   opacity: 0.7;
 }
-@media (max-width: 900px) {
-  .sede-strip {
-    grid-template-columns: repeat(2, 1fr);
-  }
+.sedec-dots {
+  display: flex;
+  gap: 6px;
 }
-@media (max-width: 520px) {
-  .sede-strip {
-    grid-template-columns: 1fr;
-  }
+.sedec-dots .dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  border: none;
+  padding: 0;
+  background: var(--line);
+  cursor: pointer;
+  transition: background 0.12s ease;
+}
+.sedec-dots .dot.on {
+  background: var(--blue);
 }
 
 /* cronograma por anunciarse: la agenda queda de teaser, blureada e
