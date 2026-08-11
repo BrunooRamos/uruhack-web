@@ -1,0 +1,4 @@
+[ 1808033ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://localhost:3111/_next/static/chunks/node_modules_next_dist_1ybzpk2._.js:2477
+[ 1808111ms] [LOG] [HMR] connected @ http://localhost:3111/_next/static/chunks/node_modules_next_dist_1ybzpk2._.js:2477
+[ 1859425ms] [ERROR] WebSocket connection to 'ws://localhost:3111/_next/webpack-hmr?id=FtzWQxSukUYpfX-O8KarP' failed:  @ http://localhost:3111/_next/static/chunks/node_modules_next_dist_client_0r5nbpw._.js:13422
+[ 1860431ms] [ERROR] WebSocket connection to 'ws://localhost:3111/_next/webpack-hmr?id=FtzWQxSukUYpfX-O8KarP' failed: Error in connection establishment: net::ERR_CONNECTION_REFUSED @ http://localhost:3111/_next/static/chunks/node_modules_next_dist_client_0r5nbpw._.js:13422
