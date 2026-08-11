@@ -37,6 +37,31 @@ const AGENDA = [
   },
 ];
 
+// Fotos reales de la sede FIUM. Duotono azul en reposo, color al hover:
+// la sede se muestra, la marca build 101 manda (ver globals.css .sede-shot).
+const SEDE_SHOTS = [
+  {
+    src: "/fium-escalera.webp",
+    alt: "escalera-tribuna de madera del atrio de fium llena de estudiantes",
+    caption: "acá son las demos",
+  },
+  {
+    src: "/fium-openspace.webp",
+    alt: "open space de fium con mesas de trabajo y luz natural",
+    caption: "36 horas acá",
+  },
+  {
+    src: "/fium-atrio.webp",
+    alt: "atrio de doble altura de fium visto desde el nivel superior",
+    caption: "doble altura, cero excusas",
+  },
+  {
+    src: "/fium-lounge.webp",
+    alt: "lounge de fium con sillones junto a los ventanales",
+    caption: "war room",
+  },
+];
+
 export default function Home() {
   return (
     <>
@@ -127,10 +152,10 @@ export default function Home() {
                   />
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
-                    src="/fium-campus.webp"
-                    alt="edificio del campus de la universidad de montevideo, facultad de ingeniería"
-                    width={1200}
-                    height={677}
+                    src="/fium-frontal.webp"
+                    alt="fachada frontal de la facultad de ingeniería de la universidad de montevideo con gente llegando"
+                    width={1600}
+                    height={1067}
                     loading="lazy"
                   />
                 </div>
@@ -152,6 +177,46 @@ export default function Home() {
               </div>
             </Reveal>
           </div>
+        </div>
+      </section>
+
+      {/* ============ LA SEDE ============ */}
+      <section id="sede" className="section-rule">
+        <div className="wrap">
+          <Reveal>
+            <div className="stage-head">
+              <div className="eyebrow">
+                <span className="slash">//</span> la sede
+              </div>
+              <h2>acá se buildea.</h2>
+              <p className="lead">
+                facultad de ingeniería de la universidad de montevideo, en el
+                parque tecnológico del latu.{" "}
+                <span className="comment">// hover para ver en color.</span>
+              </p>
+            </div>
+          </Reveal>
+          <Reveal>
+            <div className="sede-strip">
+              {SEDE_SHOTS.map((s) => (
+                <figure className="sede-shot" key={s.src}>
+                  <div className="sede-img">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      src={s.src}
+                      alt={s.alt}
+                      width={1600}
+                      height={1066}
+                      loading="lazy"
+                    />
+                  </div>
+                  <figcaption>
+                    <span className="slash">//</span> {s.caption}
+                  </figcaption>
+                </figure>
+              ))}
+            </div>
+          </Reveal>
         </div>
       </section>
 
