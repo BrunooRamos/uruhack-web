@@ -613,6 +613,81 @@ section {
   font-size: 14.5px;
 }
 
+/* la sede: filmstrip de fotos reales de FIUM. En reposo van en duotono
+   azul (grises + multiply del accent) para que la marca build 101 mande;
+   el color real aparece al hover/focus. */
+.sede-strip {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+  margin-top: 34px;
+}
+.sede-shot {
+  margin: 0;
+}
+.sede-img {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--line);
+}
+.sede-img img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  filter: grayscale(1) contrast(1.05);
+  transition: filter 0.35s ease, transform 0.35s ease;
+}
+.sede-img::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--blue);
+  mix-blend-mode: multiply;
+  opacity: 0.82;
+  transition: opacity 0.35s ease;
+  pointer-events: none;
+}
+.sede-shot:hover .sede-img img,
+.sede-shot:focus-within .sede-img img {
+  filter: none;
+  transform: scale(1.02);
+}
+.sede-shot:hover .sede-img::after,
+.sede-shot:focus-within .sede-img::after {
+  opacity: 0;
+}
+@media (prefers-reduced-motion: reduce) {
+  .sede-img img,
+  .sede-img::after {
+    transition: none;
+  }
+  .sede-shot:hover .sede-img img {
+    transform: none;
+  }
+}
+.sede-shot figcaption {
+  font-family: var(--font-mono-stack);
+  font-size: 12.5px;
+  color: var(--muted);
+  margin-top: 10px;
+}
+.sede-shot figcaption .slash {
+  color: var(--blue);
+  opacity: 0.7;
+}
+@media (max-width: 900px) {
+  .sede-strip {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 520px) {
+  .sede-strip {
+    grid-template-columns: 1fr;
+  }
+}
+
 /* cronograma por anunciarse: la agenda queda de teaser, blureada e
    ilegible, con un velo y la leyenda por encima */
 .timeline-tba {
