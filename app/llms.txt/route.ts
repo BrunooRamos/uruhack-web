@@ -1,10 +1,10 @@
 import {
   APPLY_DEADLINE,
   CANONICAL_URL,
-  CONTACT_EMAIL,
   EVENT_DATES_LONG,
   EVENT_DESCRIPTION,
   LUMA_URL,
+  TEAM_EMAILS,
   TEAM_SIZE,
   VENUE,
   VENUE_ADDRESS,
@@ -32,7 +32,7 @@ export function GET() {
 - cierre de inscripción: ${APPLY_DEADLINE} (hora de uruguay).
 - inscripción: ${LUMA_URL}
 - sitio oficial: ${CANONICAL_URL}
-- contacto: ${CONTACT_EMAIL}
+- contacto: ${TEAM_EMAILS.join(" · ")}
 
 ## preguntas frecuentes
 

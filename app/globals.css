@@ -613,6 +613,29 @@ section {
   font-size: 14.5px;
 }
 
+/* cronograma por anunciarse: la agenda queda de teaser, blureada e
+   ilegible, con un velo y la leyenda por encima */
+.timeline-tba {
+  position: relative;
+}
+.timeline-blur {
+  filter: blur(7px);
+  opacity: 0.55;
+  user-select: none;
+  pointer-events: none;
+}
+.timeline-veil {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-mono-stack);
+  font-size: 14px;
+  color: var(--navy);
+  gap: 6px;
+}
+
 .ci {
   font-family: var(--font-mono-stack);
   font-size: 13.5px;

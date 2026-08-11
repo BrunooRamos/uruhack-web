@@ -76,5 +76,12 @@ export const APPLY_DEADLINE = "27 de septiembre, 23:59";
 export const DURATION_HOURS = 36;
 export const TEAM_SIZE = "3 a 4";
 
-/** Contacto. TODO(build101): confirmar que el buzón existe. */
-export const CONTACT_EMAIL = "hola@build101.dev";
+/** Mails directos del equipo organizador (se muestran en el footer). */
+export const TEAM_EMAILS = [
+  "mateo@build101.dev",
+  "ramiro@build101.dev",
+  "bruno@build101.dev",
+];
+
+/** Contacto principal: donde la UI muestra un solo mail (FAQ, CTAs, schema). */
+export const CONTACT_EMAIL = TEAM_EMAILS[0];
