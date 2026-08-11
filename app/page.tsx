@@ -19,7 +19,7 @@ import {
   VENUE_MAPS,
   EVENT_DATES,
   EVENT_START_DATE,
-  CONTACT_EMAIL,
+  TEAM_EMAILS,
 } from "./event";
 
 // Cronograma detallado a publicar — por ahora, solo los horarios confirmados
@@ -240,7 +240,14 @@ export default function Home() {
               <div className="foot-col">
                 <b>// participá</b>
                 <InscribiteBtn className="">aplicar</InscribiteBtn>
-                <a href={`mailto:${CONTACT_EMAIL}`}>contacto</a>
+              </div>
+              <div className="foot-col">
+                <b>// contacto</b>
+                {TEAM_EMAILS.map((email) => (
+                  <a href={`mailto:${email}`} key={email}>
+                    {email}
+                  </a>
+                ))}
               </div>
             </div>
           </div>
