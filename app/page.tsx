@@ -96,6 +96,9 @@ export default function Home() {
               </p>
             </div>
           </Reveal>
+          <Reveal>
+            <SedeCarousel />
+          </Reveal>
           <div className="agenda-grid">
             <Reveal>
               <div className="timeline-tba">
@@ -117,7 +120,6 @@ export default function Home() {
             </Reveal>
             <Reveal>
               <div className="lugar">
-                <SedeCarousel />
                 <div className="lugar-info">
                   <div className="eyebrow">
                     <span className="slash">//</span> lugar
