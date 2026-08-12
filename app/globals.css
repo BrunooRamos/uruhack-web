@@ -681,19 +681,6 @@ section {
 .sedem-shot:focus-within .sede-img::after {
   opacity: 0;
 }
-.sedem-shot figcaption {
-  font-family: var(--font-mono-stack);
-  font-size: 12px;
-  color: var(--muted);
-  margin-top: 8px;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-.sedem-shot figcaption .slash {
-  color: var(--blue);
-  opacity: 0.7;
-}
 @media (prefers-reduced-motion: reduce) {
   .sedem {
     overflow-x: auto;
