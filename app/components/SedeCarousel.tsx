@@ -1,9 +1,7 @@
-"use client";
-
-import { useCallback, useEffect, useRef, useState } from "react";
-
-// Fotos reales de la sede FIUM — interiores y exteriores. Duotono azul en
-// reposo, color al hover/focus (ver globals.css .sede-img).
+// Fotos reales de la sede FIUM — interiores y exteriores, en una cinta
+// horizontal que se desplaza sola (varias fotos visibles a la vez). Duotono
+// azul en reposo, color al hover/focus (ver globals.css .sedem). La lista se
+// duplica para que el loop del marquee sea continuo; la copia va aria-hidden.
 const SLIDES = [
   {
     src: "/fium-frontal.webp",
@@ -42,97 +40,36 @@ const SLIDES = [
   },
 ];
 
-const AUTO_MS = 4500;
+function Strip({ hidden }: { hidden?: boolean }) {
+  return (
+    <div className="sedem-strip" aria-hidden={hidden || undefined}>
+      {SLIDES.map((s) => (
+        <figure className="sedem-shot" key={s.src}>
+          <div className="sede-img">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src={s.src}
+              alt={hidden ? "" : s.alt}
+              width={1600}
+              height={1000}
+              loading="lazy"
+            />
+          </div>
+          <figcaption>
+            <span className="slash">//</span> {s.caption}
+          </figcaption>
+        </figure>
+      ))}
+    </div>
+  );
+}
 
 export function SedeCarousel() {
-  const trackRef = useRef<HTMLDivElement>(null);
-  const [idx, setIdx] = useState(0);
-  const paused = useRef(false);
-
-  const go = useCallback((i: number) => {
-    const el = trackRef.current;
-    if (!el) return;
-    const n = ((i % SLIDES.length) + SLIDES.length) % SLIDES.length;
-    el.scrollTo({ left: n * el.clientWidth, behavior: "smooth" });
-  }, []);
-
-  const onScroll = () => {
-    const el = trackRef.current;
-    if (!el) return;
-    setIdx(Math.round(el.scrollLeft / el.clientWidth));
-  };
-
-  useEffect(() => {
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-    const t = setInterval(() => {
-      if (!paused.current) go(idx + 1);
-    }, AUTO_MS);
-    return () => clearInterval(t);
-  }, [idx, go]);
-
   return (
-    <div
-      className="sedec"
-      onMouseEnter={() => (paused.current = true)}
-      onMouseLeave={() => (paused.current = false)}
-      onFocus={() => (paused.current = true)}
-      onBlur={() => (paused.current = false)}
-    >
-      <div className="sedec-frame">
-        <div
-          className="sedec-track"
-          ref={trackRef}
-          onScroll={onScroll}
-          aria-live="polite"
-        >
-          {SLIDES.map((s) => (
-            <figure className="sedec-slide" key={s.src}>
-              <div className="sede-img">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src={s.src}
-                  alt={s.alt}
-                  width={1600}
-                  height={1000}
-                  loading="lazy"
-                />
-              </div>
-            </figure>
-          ))}
-        </div>
-        <button
-          type="button"
-          className="sedec-btn prev"
-          aria-label="foto anterior"
-          onClick={() => go(idx - 1)}
-        >
-          ‹
-        </button>
-        <button
-          type="button"
-          className="sedec-btn next"
-          aria-label="foto siguiente"
-          onClick={() => go(idx + 1)}
-        >
-          ›
-        </button>
-      </div>
-      <div className="sedec-foot">
-        <span className="sedec-caption">
-          <span className="slash">//</span> {SLIDES[idx]?.caption}
-        </span>
-        <div className="sedec-dots" role="tablist" aria-label="fotos de la sede">
-          {SLIDES.map((s, i) => (
-            <button
-              type="button"
-              key={s.src}
-              className={i === idx ? "dot on" : "dot"}
-              aria-label={`foto ${i + 1} de ${SLIDES.length}`}
-              aria-current={i === idx}
-              onClick={() => go(i)}
-            />
-          ))}
-        </div>
+    <div className="sedem" aria-label="fotos de la sede">
+      <div className="sedem-track">
+        <Strip />
+        <Strip hidden />
       </div>
     </div>
   );
