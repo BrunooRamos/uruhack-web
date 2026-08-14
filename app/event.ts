@@ -20,11 +20,11 @@ export const LOGO_URL = `${SITE_URL}/icon`;
 export const SEO_TITLE =
   "build 101 — la hackathon más grande de uruguay | montevideo 2026";
 export const SEO_DESCRIPTION =
-  "build 101 es la hackathon más grande de uruguay: 36 horas en montevideo, un fin de semana, un producto, una demo. inscribí a tu equipo de 3 a 4 — gratis y con cupos limitados.";
+  "build 101 es la hackathon más grande de uruguay: 36 horas en montevideo, un fin de semana, un producto, una demo. inscribí a tu equipo de 3 — gratis y con cupos limitados.";
 
 /** Descripción larga para datos estructurados (Event) y answer engines. */
 export const EVENT_DESCRIPTION =
-  "build 101 es una hackathon gratuita de 36 horas en uruguay para jóvenes builders. inscribí a tu equipo de 3 a 4 personas y construí un producto real y funcionando el 17 y 18 de octubre de 2026 en la universidad de montevideo - latu, montevideo, uruguay.";
+  "build 101 es una hackathon gratuita de 36 horas en uruguay para jóvenes builders. inscribí a tu equipo de 3 personas y construí un producto real y funcionando el 17 y 18 de octubre de 2026 en la universidad de montevideo - latu, montevideo, uruguay.";
 
 /** Última actualización de contenido del sitio (bumpeala con cada anuncio real:
  *  tracks, mentores, sponsors, cronograma). Alimenta sitemap y schema. */
@@ -74,7 +74,7 @@ export const APPLY_DEADLINE = "27 de septiembre, 23:59";
 
 /** Formato. */
 export const DURATION_HOURS = 36;
-export const TEAM_SIZE = "3 a 4";
+export const TEAM_SIZE = "3";
 
 /** Mails directos del equipo organizador (se muestran en el footer). */
 export const TEAM_EMAILS = [

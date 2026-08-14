@@ -124,7 +124,7 @@ function runCommand(raw: string): {
       out: [
         <div className="out" key="1">1. se construye durante el evento.</div>,
         <div className="out" key="2">2. demo en vivo, sin excepciones.</div>,
-        <div className="out" key="3">3. equipos de 3 a 4 personas.</div>,
+        <div className="out" key="3">3. equipos de 3 personas.</div>,
       ],
     };
   if (lower.startsWith("cat"))
