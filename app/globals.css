@@ -1782,22 +1782,49 @@ nav.topnav .logo {
 
 /* ---- interactive terminal (REPL) ---- */
 /* Altura fija: la ventana nunca crece ni salta — ni mientras tipea el script,
- * ni cuando aparece el prompt interactivo, ni al acumular comandos (scrollea). */
+ * ni cuando aparece el prompt interactivo, ni al acumular comandos (scrollea).
+ *
+ * La escalera de abajo es el alto exacto del script + el prompt en cada ancho
+ * de columna: cuanto más angosta la caja, más líneas envuelven. No la toques a
+ * ojo — si cambia el texto del script, remedí `scrollHeight` de .term-body con
+ * el script ya terminado y ajustá cada escalón al valor nuevo.
+ *
+ * Ojo con el salto de 900→901px: ahí el hero pasa a dos columnas y la terminal
+ * se angosta de golpe (de ~850px de ancho a ~330), así que necesita MÁS alto
+ * que en tablet, no menos. */
 .term-body {
-  height: 360px;
+  height: 484px; /* ≤380: la caja más angosta */
   overflow-y: auto;
   cursor: text;
 }
-/* En pantallas angostas las líneas envuelven: más alto para que el script
- * entero siga entrando sin scrollear (la altura sigue siendo fija). */
-@media (max-width: 760px) {
+@media (min-width: 381px) {
   .term-body {
     height: 412px;
   }
 }
-@media (max-width: 380px) {
+@media (min-width: 761px) {
   .term-body {
-    height: 484px;
+    height: 360px; /* una sola columna: la caja ocupa todo el ancho */
+  }
+}
+@media (min-width: 901px) {
+  .term-body {
+    height: 462px; /* dos columnas, columna derecha en su mínimo */
+  }
+}
+@media (min-width: 906px) {
+  .term-body {
+    height: 402px;
+  }
+}
+@media (min-width: 941px) {
+  .term-body {
+    height: 378px;
+  }
+}
+@media (min-width: 976px) {
+  .term-body {
+    height: 360px;
   }
 }
 .del-text {
@@ -2597,6 +2624,9 @@ a.sponsor-main:hover {
 }
 .hero-coorg a {
   display: inline-block;
+  /* sin esto el logo queda como inline: el hueco del descender suma ~7px
+     debajo de la imagen y la columna termina más abajo que el logo. */
+  vertical-align: bottom;
 }
 .hero-coorg img {
   height: 84px;
@@ -2697,6 +2727,20 @@ a.sponsor-main:hover {
 }
 .hero-copy .hero-meta {
   justify-content: flex-start;
+}
+/* En dos columnas, cuándo/dónde se apoya en el piso de la fila: queda a ras
+   del borde inferior del logo de la UM que va debajo de la terminal. */
+@media (min-width: 901px) {
+  .hero-copy {
+    align-self: stretch;
+    display: flex;
+    flex-direction: column;
+  }
+  .hero-copy .hero-meta {
+    margin-top: auto;
+    /* piso mínimo de aire si la columna derecha se acorta */
+    padding-top: 28px;
+  }
 }
 .hero-term {
   position: relative;
