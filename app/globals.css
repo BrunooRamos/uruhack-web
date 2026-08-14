@@ -1781,11 +1781,24 @@ nav.topnav .logo {
 }
 
 /* ---- interactive terminal (REPL) ---- */
+/* Altura fija: la ventana nunca crece ni salta — ni mientras tipea el script,
+ * ni cuando aparece el prompt interactivo, ni al acumular comandos (scrollea). */
 .term-body {
-  min-height: 300px;
-  max-height: 366px;
+  height: 360px;
   overflow-y: auto;
   cursor: text;
+}
+/* En pantallas angostas las líneas envuelven: más alto para que el script
+ * entero siga entrando sin scrollear (la altura sigue siendo fija). */
+@media (max-width: 760px) {
+  .term-body {
+    height: 412px;
+  }
+}
+@media (max-width: 380px) {
+  .term-body {
+    height: 484px;
+  }
 }
 .del-text {
   color: var(--red);

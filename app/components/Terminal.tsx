@@ -19,7 +19,6 @@ const SCRIPT: Line[] = [
   { k: "task", text: "convocando builders, diseño y producto" },
   { k: "task", text: "configurando mentores, sponsors y tracks" },
   { k: "blank" },
-  { k: "q", q: "¿consigna pública?", a: "zero to product" },
   { k: "q", q: "¿duración?", a: `36 horas, ${EVENT_DATES}` },
   { k: "blank" },
   { k: "comment", text: "// la regla, sin vueltas:" },
