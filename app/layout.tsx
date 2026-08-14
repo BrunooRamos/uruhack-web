@@ -72,28 +72,19 @@ export const metadata: Metadata = {
   category: "event",
 };
 
+// El sitio es oscuro siempre: un solo themeColor, sin variante por sistema.
 export const viewport: Viewport = {
-  themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#ffffff" },
-    { media: "(prefers-color-scheme: dark)", color: "#0a0a0a" },
-  ],
+  themeColor: "#0a0a0a",
+  colorScheme: "dark",
 };
 
 export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    // suppressHydrationWarning: el script inline setea data-theme antes del
-    // primer paint (elección guardada → sistema); React acepta el DOM.
-    // Sin JS no hay atributo y aplica el @media (prefers-color-scheme) del CSS.
-    <html lang="es-UY" suppressHydrationWarning>
-      <head>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `(function(){try{var s=localStorage.getItem("theme");var t=s==="dark"||s==="light"?s:window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light";document.documentElement.setAttribute("data-theme",t)}catch(e){}})()`,
-          }}
-        />
-      </head>
+    // Un solo tema: el color sale de los tokens del CSS, así que no hay script
+    // de pre-paint, ni data-theme, ni riesgo de flash de tema equivocado.
+    <html lang="es-UY">
       <body className={mono.variable}>{children}</body>
     </html>
   );
