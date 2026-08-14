@@ -54,7 +54,7 @@ export const FAQS: FaqItem[] = [
   {
     q: "¿necesito tener un equipo para aplicar?",
     aText:
-      "sí: la inscripción es por equipos de 3 a 4 personas. si todavía no tenés equipo, escribinos y te ayudamos a formar uno.",
+      "sí: la inscripción es por equipos de 3 personas. si todavía no tenés equipo, escribinos y te ayudamos a formar uno.",
   },
   {
     q: "¿necesito saber programar?",

@@ -18,7 +18,7 @@ export function Hero() {
             </span>
           </h1>
           <p className="lead hero-lead rise d2">
-            armás un equipo de 3 a 4, construís un producto real y lo mostrás
+            armás un equipo de 3, construís un producto real y lo mostrás
             funcionando el domingo. inscribí a tu equipo: gratis y con cupos
             limitados.
           </p>
