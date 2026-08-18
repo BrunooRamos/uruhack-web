@@ -27,8 +27,8 @@ export const EVENT_DESCRIPTION =
   "build 101 es una hackathon gratuita de 36 horas en uruguay para jóvenes builders. inscribí a tu equipo de 3 personas y construí un producto real y funcionando el 17 y 18 de octubre de 2026 en la universidad de montevideo - latu, montevideo, uruguay.";
 
 /** Última actualización de contenido del sitio (bumpeala con cada anuncio real:
- *  tracks, mentores, sponsors, cronograma). Alimenta sitemap y schema. */
-export const CONTENT_UPDATED_ISO = "2026-08-03T00:00:00-03:00";
+ *  consigna, mentores, sponsors, cronograma). Alimenta sitemap y schema. */
+export const CONTENT_UPDATED_ISO = "2026-08-18T00:00:00-03:00";
 
 /** Link de inscripción en Luma (selección con aprobación del organizador). */
 export const LUMA_URL = "https://luma.com/2kxg61n8";

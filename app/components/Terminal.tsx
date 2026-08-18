@@ -17,7 +17,7 @@ const SCRIPT: Line[] = [
   { k: "cmd", text: "npx create-hackathon@latest build-101" },
   { k: "task", text: "reservando sede: universidad de montevideo — latu" },
   { k: "task", text: "convocando builders, diseño y producto" },
-  { k: "task", text: "configurando mentores, sponsors y tracks" },
+  { k: "task", text: "configurando mentores, sponsors y jurado" },
   { k: "blank" },
   { k: "q", q: "¿duración?", a: `36 horas, ${EVENT_DATES}` },
   { k: "blank" },
@@ -83,7 +83,7 @@ function runCommand(raw: string): {
         <div className="out">
           comandos: <span className="accent">ls</span> ·{" "}
           <span className="accent">cat &lt;archivo&gt;</span> ·{" "}
-          <span className="accent">tracks</span> ·{" "}
+          <span className="accent">consigna</span> ·{" "}
           <span className="accent">sponsors</span> ·{" "}
           <span className="accent">inscribite</span> ·{" "}
           <span className="accent">whoami</span> ·{" "}
@@ -109,7 +109,11 @@ function runCommand(raw: string): {
         <div className="out" key="2">con mentores y sponsors del ecosistema tech.</div>,
       ],
     };
-  if (lower === "cat consigna" || lower === "cat consigna.md")
+  if (
+    lower === "consigna" ||
+    lower === "cat consigna" ||
+    lower === "cat consigna.md"
+  )
     return {
       out: O(
         <div className="out">
@@ -135,15 +139,6 @@ function runCommand(raw: string): {
         <div className="out">
           anuncio próximamente · <span className="comment">[tu logo acá]</span> ·
           sumate → <span className="accent">{CONTACT_EMAIL}</span>
-        </div>,
-      ),
-    };
-  if (lower === "tracks")
-    return {
-      out: O(
-        <div className="out">
-          <span className="accent">zero to product</span> — compiten todos los
-          equipos por el premio principal. tracks por sponsor: se anuncian pronto.
         </div>,
       ),
     };

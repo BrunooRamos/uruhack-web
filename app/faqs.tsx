@@ -67,9 +67,9 @@ export const FAQS: FaqItem[] = [
       "la consigna se revela en el kickoff, para que nadie llegue con ventaja. podés llegar con ideas, pero el producto se define y se construye ahí.",
   },
   {
-    q: "¿cómo funcionan los tracks?",
+    q: "¿cuál es la consigna?",
     aText:
-      "todos los equipos compiten en el track principal, zero to product, por el premio principal. si querés, podés inscribir tu proyecto además en un track por sponsor y competir por ese premio extra: siempre presentás en el principal y, opcionalmente, en un track más.",
+      "la consigna específica se anuncia más adelante. todos los equipos construyen sobre la misma consigna y compiten por el premio principal.",
   },
   {
     q: "¿puedo empezar a trabajar antes del evento?",
