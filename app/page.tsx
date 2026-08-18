@@ -3,7 +3,7 @@ import { Reveal } from "./components/Reveal";
 import { ScrollProgress } from "./components/ScrollProgress";
 import { Hero } from "./components/Hero";
 import { Sponsors } from "./components/Sponsors";
-import { Tracks } from "./components/Tracks";
+import { Consigna } from "./components/Consigna";
 import { Mentors } from "./components/Mentors";
 import { FAQ } from "./components/FAQ";
 import { ApplyCTA } from "./components/ApplyCTA";
@@ -54,7 +54,7 @@ export default function Home() {
           </a>
           <div className="nav-links">
             <div className="nav-secondary">
-              <a href="#tracks">// tracks</a>
+              <a href="#consigna">// consigna</a>
               <a href="#build">// programa</a>
               <a href="#faq">// faq</a>
             </div>
@@ -71,8 +71,8 @@ export default function Home() {
       {/* ============ SPONSORS ============ */}
       <Sponsors />
 
-      {/* ============ TRACKS ============ */}
-      <Tracks />
+      {/* ============ CONSIGNA ============ */}
+      <Consigna />
 
       {/* ============ MENTORES & JURADO ============ */}
       <Mentors />
@@ -222,7 +222,7 @@ export default function Home() {
             <div className="foot-links">
               <div className="foot-col">
                 <b>// evento</b>
-                <a href="#tracks">tracks</a>
+                <a href="#consigna">consigna</a>
                 <a href="#build">programa</a>
                 <a href="#faq">faq</a>
               </div>
