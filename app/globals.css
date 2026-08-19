@@ -2032,26 +2032,6 @@ body.has-cursor .repl-input {
 }
 
 /* ============================================================
-   consigna
-   ============================================================ */
-.consigna-soon {
-  max-width: 620px;
-  margin: 0 auto;
-  text-align: center;
-  border: 1px dashed var(--line-2);
-  border-radius: 8px;
-  padding: 38px 24px;
-  background: var(--surface-1);
-}
-.consigna-soon p {
-  margin: 0;
-  font-family: var(--font-mono-stack);
-  font-size: 15px;
-  letter-spacing: 0.02em;
-  color: var(--faint);
-}
-
-/* ============================================================
    mentores & jurado
    ============================================================ */
 #mentores {
